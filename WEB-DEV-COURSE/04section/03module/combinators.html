@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators</title>
+    <style>
+        /* all p inside of the div */
+        /* div p {
+            color: green;
+        } */
+
+        /* direct child of div */
+        /* div > p {
+            color: blue;
+        } */
+
+        /* the first p after h2 */
+        /* h2 + p {
+            color: purple;
+        } */
+
+        /* all p tags after h2 */
+        h2 ~ p {
+            color: orange;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- <div>
+        <p>this is inside a div</p>
+    </div> -->
+
+     <!-- <p>this is is not colored green</p> -->
+
+    <!-- <div>
+        <p>Direct Child</p>
+        <section>
+            <p>Not a direct child</p>
+        </section>
+    </div> -->
+
+    <!-- <h2>heading</h2>
+    <p>this is selected</p>
+    <p>this is not.</p> -->
+
+    <h2>heading</h2>
+    <p>first paragraph.</p>
+    <p>second paragraph.</p>
+</body>
+</html>
