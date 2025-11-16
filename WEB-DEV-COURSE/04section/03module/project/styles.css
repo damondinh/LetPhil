@@ -1,0 +1,42 @@
+/* 
+    Project Outcome: 
+    - Used padding, margin, border, border radius, box-shadow properties to style a card component.
+    - Centered the card on the page using flexbox.
+
+    Best Practices:
+    - Use box-sizing: border-box; to include padding and border in element's total width and height. (avoids unexpected sizing issues)
+    - Use consistent units (e.g., px, em, rem) for spacing
+    - Use padding for inner spacing and margin for outer spacing (to seperate elements).
+
+    Key takeaways:
+    - The box model consists of margins, borders, padding, and the content itself.
+    - Box-sizing: border-box; ensures width and height include padding and border.
+    - Margins create outer space, while padding creates inner space.
+    - Borders wrap around elements and can have different styles.
+    - Box shadoes add depth for a modern look.
+
+ */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; /* Full viewport height */
+}
+
+.card {
+    width: 250px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    box-sizing: border-box
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
