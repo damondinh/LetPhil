@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Classes</title>
+    <style>
+        button:hover {
+            background-color: lightblue;
+        }
+        
+        input:focus {
+            border: 3px solid green;
+        }
+
+        /* even, odd, 1, 2, 3, etc */
+        li:nth-child(odd) { 
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <button>Hover over me!</button>
+    <input type="text" placeholder="Click me!">
+
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+</body>
+</html>
