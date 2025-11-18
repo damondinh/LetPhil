@@ -1,0 +1,82 @@
+<!-- 
+                   Margin
+    +-----------------------------------+ 
+    |              Border               |
+    |   +---------------------------+   | 
+    |   |          Padding          |   |
+    |   |    +-----------------+    |   | 
+    |   |    |     Content     |    |   |
+    |   |    +-----------------+    |   | 
+    |   |                           |   |
+    |   +---------------------------+   |
+    |                                   |
+    +-----------------------------------+
+
+    Notes:
+    - Padding: top right bottom left
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        /* .box {
+            width: 200px;   
+            height: 100px;  
+            padding: 20px;
+            border: 5px solid black;
+            margin: 15px;
+            background-color: lightblue;
+        } */
+
+        /* .box {
+            width: 250px;   
+            height: 150px;  
+            background-color: lightblue;
+        } */
+
+        /* Padding: top right bottom left */
+        /* .box {
+            padding: 10px 20px 15px 5px;
+            background-color: lightblue;
+        } */
+
+        /* .box { */
+            /* border: 5px solid black; */
+            /* border: 3px dashed red;
+            border: 4px dotted blue; */
+            /* border-width: 5px;
+            border-style: solid;
+            border-color: black; */
+            /*border-radius: 15px;*/ /*circle border -> border-radius set to half of width & height*/
+        /* } */
+
+        /* margin -> top right bottom left */
+        /* .box {
+            width: 200px;
+            background-color: lightblue;
+            margin: 20px 40px 10px 5px; 
+            margin: auto; /*center align*/
+        /* } */
+
+        /* .box {
+            width: 200px;   
+            height: 100px;  
+            padding: 20px;
+            border: 5px solid black;
+            margin: 15px;
+            background-color: lightblue;
+            box-sizing: border-box; /*includes padding & border in width & height*/
+        /* } */
+
+        .box {
+            box-shadow: 5px 10px 15px rgba(0,0,0,0.3); /*x-offset, y-offset, blur-radius, color*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Hello, I'm a box!</div>   
+</body>
+</html>
