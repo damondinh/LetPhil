@@ -1,0 +1,27 @@
+/*
+    Best Practices: 
+        - Use relative for elements that move within normal flow
+        - Use absolute inside a positioned parent
+        - Use fixed for always visible elements (eg. floating buttons)
+        - Use sticky for navigation bars
+        use z-index only when necessary (higher values go on top)
+ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
