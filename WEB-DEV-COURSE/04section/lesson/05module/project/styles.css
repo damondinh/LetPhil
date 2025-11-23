@@ -1,10 +1,17 @@
 /*
+    Key Takeaways:
+        - The display property controls how elements appear
+        - position controls where elements are placed
+        - z-index controls layering
+        - overflow manages content visibility
+        - sticky, fixed, and absolute have different use cases
+        
     Best Practices: 
         - Use relative for elements that move within normal flow
         - Use absolute inside a positioned parent
         - Use fixed for always visible elements (eg. floating buttons)
         - Use sticky for navigation bars
-        use z-index only when necessary (higher values go on top)
+        - Use z-index only when necessary (higher values go on top)
  */
 body {
     font-family: Arial, sans-serif;
