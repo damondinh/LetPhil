@@ -33,8 +33,8 @@
 
         .absolute {
             position: absolute;
-            top: 20px;
-            left: 50px;
+            top: 50px;
+            left: 100px;
             background-color: lightpink;
         }
 
@@ -51,10 +51,27 @@
             padding: 10px;
             z-index: 10000;
         }
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .one {
+            background-color: red;
+            z-index: 1;
+        }
+
+        .two {
+            background-color: blue;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
-    <header class="sticky">I am sticky</header>
+    <!-- <header class="sticky">I am sticky</header>
     <p class="static">I am static.</p>
     <div class="relative">I am relative.</div>
     <div class="fixed">I am fixed</div>
@@ -62,7 +79,8 @@
     
     <div class="parent">
         <div class="absolute">I am absolute</div>
-    </div>
-
+    </div> -->
+    <div class="box one">box one</div>
+    <div class="box two">box two( above )</div>
 </body>
 </html>
