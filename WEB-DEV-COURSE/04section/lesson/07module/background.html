@@ -18,13 +18,46 @@
         } */
 
         /*Background Images*/
-        .bg-image {
+        /* .bg-image {
             background-image: url("background.png");
             height: 200px;
             background-size: cover;
             background-position: center;
+        } */
+
+        /*Background Positioning*/
+        .bg-image {
+            background-image: url("background.png");
+            background-position: center center;
+            height: 2000px;
         }
 
+        /*Background Size*/
+        .bg-cover {
+            background-size: cover;
+        }
+
+        .bg-contain {
+            background-size: contain;
+        }
+
+        .bg-no-repeat {
+            background-repeat: no-repeat;
+        }
+
+        .bg-repeat {
+            background-repeat: repeat;
+        }
+
+        .bg-fixed {
+            background-attachment: fixed;
+        }
+
+        .gradient {
+            /* background: linear-gradient(to right, red, blue); */
+            background: radial-gradient(circle,red, blue)
+
+        }
     </style>
 </head>
 <body>
@@ -33,6 +66,12 @@
     <div class="bg-dark">dark background</div> -->
 
     <!-- Background Images -->
-     <div class="bg-image">Background Image</div>
+
+    <!-- Background Positioning -->
+
+    <!-- Background Size -->
+    <div class="bg-image bg-contain bg-no-repeat bg-fixed gradient">Background Image</div>
+
+
 </body>
 </html>
