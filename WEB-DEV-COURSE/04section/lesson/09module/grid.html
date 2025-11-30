@@ -9,8 +9,9 @@
             display: grid;
             background-color: lightgrey;
             padding: 10px;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             /* grid-template-rows: 100px 100px; */
+            gap: 20px;
         }
 
         .item {
@@ -18,6 +19,11 @@
             color: white;
             padding: 20px;
             margin: 5px;
+        }
+
+        .item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2; 
         }
     </style>
 </head>
