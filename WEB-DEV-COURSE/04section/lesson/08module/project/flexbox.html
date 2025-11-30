@@ -9,7 +9,10 @@
             display: flex;
             background-color: lightgrey;
             padding: 10px;
-            flex-direction: column;
+            /* flex-direction: column; */
+            justify-content: space-between;
+            height: 200px;
+            align-items: baseline;
         }
 
         .item {
@@ -17,6 +20,10 @@
             color: white;
             padding: 20px;
             margin: 5px;
+        }
+        
+        .item:nth-child(2) {
+            align-self: flex-end;
         }
     </style>
 </head>
