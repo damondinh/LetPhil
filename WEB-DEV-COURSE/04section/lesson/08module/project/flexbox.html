@@ -10,9 +10,10 @@
             background-color: lightgrey;
             padding: 10px;
             /* flex-direction: column; */
-            justify-content: space-between;
+            justify-content: flex-start;
             height: 200px;
             align-items: baseline;
+            flex-wrap: wrap;
         }
 
         .item {
@@ -22,13 +23,22 @@
             margin: 5px;
         }
         
-        .item:nth-child(2) {
+        /* .item:nth-child(2) {
             align-self: flex-end;
-        }
+        } */
     </style>
 </head>
 <body>
     <div class="flex-container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
         <div class="item">Item 1</div>
         <div class="item">Item 2</div>
         <div class="item">Item 3</div>
