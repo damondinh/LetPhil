@@ -40,3 +40,12 @@ fruits.splice(1, 2);
 
 console.log(fruits);
 
+const numbers = [1,2,3,4,5];
+// map 
+console.log("numbers =", numbers);
+const doubled = numbers.map((num) => num * 2);
+console.log("doubled =", doubled);
+
+// filter
+const evenNumbers = numbers.filter(num => num % 2 === 0)
+console.log(evenNumbers);

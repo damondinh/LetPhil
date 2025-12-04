@@ -1,0 +1,22 @@
+const person = {
+    name: "Alice",
+    age: 25,
+    city: "New York"
+};
+
+console.log(person);
+
+console.log(person.name);
+
+console.log(person["age"]);
+
+person.country = "USA";
+console.log(person);
+
+delete person.city;
+console.log(person);
+
+for (const key in person) {
+    console.log("key =", key);
+    console.log("value =", person [key]);
+}
