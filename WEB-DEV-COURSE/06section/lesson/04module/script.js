@@ -10,11 +10,11 @@
 
 // addNumbers(1,2,3);
 
-const greet = function(name) {
-    return `Hello, ${name}`;
-};
+// const greet = function(name) {
+//     return `Hello, ${name}`;
+// };
 
-console.log(greet("Alice"));
+// console.log(greet("Alice"));
 
 // Arrow functions ( Short Syntax )
 
@@ -26,5 +26,34 @@ console.log(greet("Alice"));
 // console.log(square(5));
 
 // () => {}
-const multiply = (a, b) => a * b;
-console.log(multiply(3,4));
+// const multiply = (a, b) => a * b;
+// console.log(multiply(3,4));
+
+// Function Scope
+
+// let globalVar = "I am global";
+
+// function testScope() {
+//     let localVar = "I exists only in this function";
+//     console.log(globalVar); // Works
+//     console.log(localVar); // Works
+// }
+
+// testScope();
+// console.log(globalVar); // Works
+// console.log(localVar); // Error
+
+// Hoisting
+
+// hello(); // works
+
+// function hello() {
+//     console.log("Hello from a function declaration");
+// }
+
+// greet(); // error
+
+// const greet = function () {
+//     console.log("HELLO FROM A FUNCTION EXPRESSION");
+// }
+
