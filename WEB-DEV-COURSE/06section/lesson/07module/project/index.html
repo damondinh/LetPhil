@@ -44,15 +44,20 @@
         // heading.style.textAlign = "center";
 
         // ADDING / REMOVING / CREATING
-        const newParagraph = document.createElement("p");
-        newParagraph.textContent = "THIS IS A NEW PARAGRAPH"
+        // const newParagraph = document.createElement("p");
+        // newParagraph.textContent = "THIS IS A NEW PARAGRAPH"
         
-        document.body.appendChild(newParagraph);
+        // document.body.appendChild(newParagraph);
 
-        document.querySelector("button").addEventListener("click", function() {
-            document.body.removeChild(newParagraph);
-        })
+        // document.querySelector("button").addEventListener("click", function() {
+        //     document.body.removeChild(newParagraph);
+        // })
 
+        const link = document.createElement("a");
+        link.setAttribute("href", "http://google.com");
+        link.setAttribute("target", "_blank");
+        link.textContent = "VISIT website";
+        document.body.appendChild(link);
     </script>
 </body>
 </html>
