@@ -24,8 +24,14 @@
         // console.log("paragraphs =", paragraphs);
         // console.log("paragraphs[0].textContent =", paragraphs[0].textContent);
 
-        const buttons = document.getElementsByTagName("button");
-        console.log("buttons =", buttons[0].textContent);
+        // const buttons = document.getElementsByTagName("button");
+        // console.log("buttons =", buttons[0].textContent);
+
+        // const firstParagraph = document.querySelector(".description");
+        // console.log(firstParagraph.textContent);
+
+        const allParagraphs = document.querySelectorAll(".description");
+        allParagraphs.forEach((para) => console.log(para.textContent));
     </script>
 </body>
 </html>
