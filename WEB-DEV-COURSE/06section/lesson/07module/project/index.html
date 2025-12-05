@@ -34,14 +34,25 @@
         // allParagraphs.forEach((para) => console.log(para.textContent));
 
         // MODIFY ELEMENTS
-        const heading = document.getElementById("main-heading");
-        heading.textContent = "NEW HEADING";
+        // const heading = document.getElementById("main-heading");
+        // heading.textContent = "NEW HEADING";
 
-        heading.innerHTML = "<span style='color: red'>styled</span>heading";
+        // heading.innerHTML = "<span style='color: red'>styled</span>heading";
 
-        heading.style.color = 'blue';
-        heading.style.fontSize = "24px";
-        heading.style.textAlign = "center";
+        // heading.style.color = 'blue';
+        // heading.style.fontSize = "24px";
+        // heading.style.textAlign = "center";
+
+        // ADDING / REMOVING / CREATING
+        const newParagraph = document.createElement("p");
+        newParagraph.textContent = "THIS IS A NEW PARAGRAPH"
+        
+        document.body.appendChild(newParagraph);
+
+        document.querySelector("button").addEventListener("click", function() {
+            document.body.removeChild(newParagraph);
+        })
+
     </script>
 </body>
 </html>
