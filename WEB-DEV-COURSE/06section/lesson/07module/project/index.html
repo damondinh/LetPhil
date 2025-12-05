@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom example</title>
+</head>
+<body>
+    <h1 id="main-heading">Welcome to Javascript</h1>
+    <p class="description">This is a paragraph</p>
+    <button onclick="changeText()">Click Me!</button>
+    <script>
+        function changeText() {
+            document.getElementById("main-heading").textContent = "DOM Manipulation is Awesome";
+        }
+    </script>
+</body>
+</html>
