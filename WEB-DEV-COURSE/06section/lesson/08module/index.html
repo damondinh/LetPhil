@@ -6,25 +6,32 @@
     <title>User Events</title>
 </head>
 <body>
-    <!-- <button id="btn">Click Me</button>
-    <p id="hoverText">Hover over me!</p>
+    <button id="btn">Click Me</button>
+    <!-- <p id="hoverText">Hover over me!</p>
     <input type="text" id="textInput" placeholder="Type something..."/>
     <p id="displayText"></p> -->
-    <select id="dropdown">
+    <!-- <select id="dropdown">
         <option value="">Please Select</option>
         <option value="apple">Apple</option>
         <option value="banana">Banana</option>
         <option value="cherry">Cherry</option>
-    </select>
+    </select> -->
 
-    <p id="output"></p>
+    <!-- <p id="output"></p> -->
     <script>
-        const dropdown = document.getElementById("dropdown");
-        const output = document.getElementById("output");
+        function handleClick() {
+            console.log("handle click");
+            btn.removeEventListener("click", handleClick);
+        }
 
-        dropdown.addEventListener("change", function() {
-            output.textContent = "You Selected: " + dropdown.value;
-        })
+        btn.addEventListener("click", handleClick);
+        // const dropdown = document.getElementById("dropdown");
+        // const output = document.getElementById("output");
+
+        // dropdown.addEventListener("change", function() {
+        //     output.textContent = "You Selected: " + dropdown.value;
+        // })
+
         // const input = document.getElementById("textInput");
         // const display = document.getElementById("displayText");
 
