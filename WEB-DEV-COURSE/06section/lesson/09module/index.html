@@ -17,16 +17,29 @@
 
         // console.log("End");
 
-        let count = 0;
+        // let count = 0;
 
-        const interval = setInterval(() => {
-            ++ count;
-            console.log(`Count: ${count}`);
+        // const interval = setInterval(() => {
+        //     ++ count;
+        //     console.log(`Count: ${count}`);
 
-            if (count === 5) {
-                clearInterval(interval);
-            }
-        }, 1000);
+        //     if (count === 5) {
+        //         clearInterval(interval);
+        //     }
+        // }, 1000);
+
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let success = Math.random() > 0.5; // randomly succeed or fail
+                    success ? resolve("Fetched Data!") : reject("Error fetching data!");
+                },2000);
+            });
+        }
+
+        fetchData()
+            .then(data=> console.log(data)) // success
+            .catch((error) => console.log(error)); // fail
     </script>
     
 </body>
