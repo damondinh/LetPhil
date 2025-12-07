@@ -28,18 +28,33 @@
         //     }
         // }, 1000);
 
-        function fetchData() {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    let success = Math.random() > 0.5; // randomly succeed or fail
-                    success ? resolve("Fetched Data!") : reject("Error fetching data!");
-                },2000);
-            });
+        // function fetchData() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             let success = Math.random() > 0.5; // randomly succeed or fail
+        //             success ? resolve("Fetched Data!") : reject("Error fetching data!");
+        //         },2000);
+        //     });
+        // }
+
+        // fetchData()
+        //     .then(data=> console.log(data)) // success
+        //     .catch((error) => console.log(error)); // fail
+
+        async function loadData() {
+            console.log("FETCHING DATA...");
+            try {
+                const response = await new Promise(resolve => {
+                    setTimeout(() => resolve("Data successfully loaded!"), 3000);
+                });
+                console.log(response);
+            } catch (error) {
+                console.error(error);
+            }
         }
 
-        fetchData()
-            .then(data=> console.log(data)) // success
-            .catch((error) => console.log(error)); // fail
+        loadData();
+        console.log("End of script");
     </script>
     
 </body>
