@@ -7,16 +7,26 @@
 </head>
 <body>
     <script>
-        console.log("Start");
-        // console.log("Processing...");
+        // console.log("Start");
+        // // console.log("Processing...");
+        // // console.log("End");
+
+        // setTimeout(() => {
+        //     console.log("Processing...");
+        // }, 2000);
+
         // console.log("End");
 
-        setTimeout(() => {
-            console.log("Processing...");
-        }, 2000);
+        let count = 0;
 
-        console.log("End");
+        const interval = setInterval(() => {
+            ++ count;
+            console.log(`Count: ${count}`);
 
+            if (count === 5) {
+                clearInterval(interval);
+            }
+        }, 1000);
     </script>
     
 </body>
