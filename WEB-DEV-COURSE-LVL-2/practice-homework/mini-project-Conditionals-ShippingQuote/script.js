@@ -53,6 +53,7 @@ const perKg = 1.2;
 // STEP 8 — Wiring
 //   When quoteBtn is clicked, compute and show the quote.
 quoteBtn.addEventListener("click", () => {
+  // Validate weight & distance inputs
   let weight = weightInput.valueAsNumber;
   let distance = distanceInput.valueAsNumber;
   let message = weight < 0 || distance < 0 ? "Please provide a valid input" : "";
@@ -61,6 +62,7 @@ quoteBtn.addEventListener("click", () => {
     return;
   }
 
+  // Calcuate shipping
   let surcharge = (distance > 1000) ? 15 : (distance > 500 && distance < 1000) ? 7 : 0;
   let oversize = (weight > 20) ? 10 : 0;
   let discountRate = isMemberInput.value ? 0.10 : 0;
@@ -69,6 +71,7 @@ quoteBtn.addEventListener("click", () => {
   let discountAmount = preDiscount * discountRate;
   let total = preDiscount - discountAmount;
 
+  // Display ouptut
   output.textContent = 
   `Shipping Quote
     Base: $${baseFee.toFixed(2)}
