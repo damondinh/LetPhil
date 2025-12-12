@@ -28,3 +28,61 @@ STEP 6 — Wiring
   Wire addBtn to handleAdd, removeBtn to handleRemove, and clearBtn to handleClear.
   Call renderAll once so the page reflects the current state.
 */
+let items = [];
+let itemInput = document.getElementById("itemInput");
+let addBtn = document.getElementById("addBtn");
+let removeBtn = document.getElementById("removeBtn");
+let clearBtn = document.getElementById("clearBtn");
+let list = document.getElementById("list");
+let countLabel = document.getElementById("countLabel");
+
+function renderAll() {
+  list.textContent = ""; // clears the list
+  
+  // add each list item to the list
+  for (const item of items) {
+    let listItem = document.createElement("li");
+    listItem.textContent = item;
+    list.appendChild(listItem);
+  }
+
+  // display
+  countLabel.textContent = `Count: ${items.length}`;
+}
+
+function handleAdd() {
+  let item = itemInput.value.trim();
+  if (item !== "") {
+    items.push(item);
+    console.log(items);
+    renderAll();
+  }
+}
+
+function handleRemove() {
+  if (items.length > 0) {
+    items.pop();
+    renderAll();
+  }
+}
+
+function handleClear() {
+  items.length = 0;
+  renderAll();
+}
+
+addBtn.addEventListener("click", function() {
+  handleAdd();
+})
+
+removeBtn.addEventListener("click", function() {
+  handleRemove();
+})
+
+clearBtn.addEventListener("click", function() {
+  handleClear();
+})
+
+
+
+
