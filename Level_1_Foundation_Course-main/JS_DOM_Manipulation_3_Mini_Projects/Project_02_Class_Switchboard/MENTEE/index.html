@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 2 — Class Switchboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>Project 2 — Class Switchboard</h1>
+          <p class="subtitle">
+            DOM practice: select → modify → create → remove → classList →
+            attributes
+          </p>
+        </div>
+        <span class="badge">DOM</span>
+      </header>
+
+      <section class="card">
+        <h2>Class Switchboard</h2>
+        <p class="subtitle">
+          Toggle classes on one box (highlight / shake / reset).
+        </p>
+
+        <div class="controls">
+          <button id="highlightBtn" class="btn good">Toggle Highlight</button>
+          <button id="shakeBtn" class="btn warn">Shake</button>
+          <button id="resetBtn" class="btn danger">Reset</button>
+        </div>
+
+        <div class="stage">
+          <div id="messageBox" class="box">
+            <strong>Status:</strong>
+            <span id="statusText">waiting for your JS...</span>
+            <p class="small">
+              Your JS will update this text and add/remove classes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Tip: If something doesn't work, verify your selectors first ✅
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

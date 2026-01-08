@@ -1,0 +1,47 @@
+/*
+  🧠 Project 2 — Responsive Typography Card 
+  IMPORTANT RULES:
+  - After each step: SAVE → REFRESH.
+*/
+
+/* STEP 1 — Desktop default typography */
+/*
+  Style body: margin 0, font-family.
+  Center the card using .page (min-height: 100vh + flex).
+  Give .card a background-color, padding, and border-radius.
+  Set DESKTOP font sizes:
+  - .title larger (example: 44px)
+  - .desc readable (example: 18px) with line-height (example: 1.7)
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Tablet typography (max-width: 768px) */
+/*
+  Add @media (max-width: 768px) { ... }
+  Inside it, reduce font sizes slightly:
+  - .title smaller (example: 34px)
+  - .desc slightly smaller (example: 16px)
+  Also reduce padding so it fits smaller screens.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Mobile typography (max-width: 480px) */
+/*
+  Add @media (max-width: 480px) { ... }
+  Inside it:
+  - reduce .title again (example: 28px)
+  - keep line-height comfortable
+  - reduce .card padding so it doesn't feel squished
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Make spacing responsive (bonus) */
+/*
+  Adjust margins between elements at different sizes.
+  Example: smaller margin-top on mobile, bigger on desktop.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */

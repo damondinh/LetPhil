@@ -1,0 +1,27 @@
+/* Reset */
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+:root{--bg:#070a12;--panel:rgba(255,255,255,.06);--border:rgba(255,255,255,.14);--text:#f3f6ff;--muted:rgba(243,246,255,.78);--a:#38bdf8;--b:#a78bfa;--shadow:0 18px 60px rgba(0,0,0,.52)}
+body{color:var(--text);background:
+radial-gradient(900px 520px at 12% 10%, rgba(56,189,248,.22), transparent 60%),
+radial-gradient(900px 520px at 88% 15%, rgba(167,139,250,.16), transparent 62%),
+var(--bg);}
+.app{max-width:1000px;margin:0 auto;padding:28px 18px 44px}
+.header{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+h1{margin:0;font-size:clamp(28px,3.2vw,46px);line-height:1.05}
+.subtitle{margin:10px 0 0;color:var(--muted);line-height:1.6}
+.badge{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(56,189,248,.18), rgba(167,139,250,.14));border:1px solid rgba(56,189,248,.35);font-weight:900}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input{flex:1;min-width:220px;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.30);color:var(--text);outline:none}
+.btn{padding:12px 14px;border-radius:14px;border:1px solid rgba(56,189,248,.38);background:rgba(56,189,248,.16);color:var(--text);font-weight:900;cursor:pointer}
+.btn.danger{border-color:rgba(239,68,68,.40);background:rgba(239,68,68,.14)}
+.noteList{margin:12px 0 0;display:grid;gap:10px;padding:0;list-style:none}
+.note{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.28)}
+.note p{margin:0;color:var(--muted);line-height:1.5}
+.pill{padding:6px 10px;border-radius:999px;border:1px solid rgba(167,139,250,.38);background:rgba(167,139,250,.14);font-size:12px;font-weight:900}
+.flash{outline:2px solid rgba(56,189,248,.65);box-shadow:0 0 0 6px rgba(56,189,248,.12)}
+.footer{margin-top:16px;color:rgba(243,246,255,.60);font-size:13px}

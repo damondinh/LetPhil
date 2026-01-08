@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Pricing Cards (Flexbox)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <h1>Responsive Pricing Cards</h1>
+      <p class="subtitle">Use flex-wrap so the cards adapt to screen size.</p>
+    </header>
+
+    <section class="pricing">
+      <article class="plan">
+        <p class="plan__name">Starter</p>
+        <p class="plan__price">$9</p>
+        <ul class="plan__list">
+          <li>1 project</li>
+          <li>Basic support</li>
+          <li>Simple UI</li>
+        </ul>
+        <a class="plan__btn" href="#">Choose</a>
+      </article>
+
+      <article class="plan plan--featured">
+        <p class="plan__name">Pro</p>
+        <p class="plan__price">$19</p>
+        <ul class="plan__list">
+          <li>5 projects</li>
+          <li>Priority support</li>
+          <li>Better UI</li>
+        </ul>
+        <a class="plan__btn" href="#">Choose</a>
+      </article>
+
+      <article class="plan">
+        <p class="plan__name">Team</p>
+        <p class="plan__price">$39</p>
+        <ul class="plan__list">
+          <li>Unlimited projects</li>
+          <li>Team support</li>
+          <li>Advanced UI</li>
+        </ul>
+        <a class="plan__btn" href="#">Choose</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

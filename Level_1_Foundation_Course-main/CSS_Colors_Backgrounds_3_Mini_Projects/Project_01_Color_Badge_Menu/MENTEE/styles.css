@@ -1,0 +1,56 @@
+/*
+  🧠 Project 1 — Color Badge Menu 
+
+  IMPORTANT RULES:
+  - After each step: SAVE → REFRESH.
+*/
+
+/* STEP 1 — Set the page background and base font */
+/*
+  Select body.
+  Remove default margin (margin: 0).
+  Set a font-family (example: system-ui).
+  Set a light background-color so the card stands out.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Center the card */
+/*
+  Select .page.
+  Use min-height: 100vh and flex to center the card.
+  Tip: display:flex; align-items:center; justify-content:center;
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Card background + spacing */
+/*
+  Select .card.
+  Give it a white background-color.
+  Add padding, border-radius, and a subtle border.
+  This teaches changing background colors on containers.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Text colors for hierarchy */
+/*
+  Select .title and make it darker (color).
+  Select .subtitle and make it softer/lighter (color with opacity OR a gray).
+  This teaches text colors for hierarchy.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 5 — Badge colors (meaning) */
+/*
+  All badges share: padding, border-radius, font-size, font-weight.
+  Then each badge gets different background-color + text color:
+  - .badge--good = green vibe
+  - .badge--warn = orange/yellow vibe
+  - .badge--bad  = red vibe
+  Make sure the text is readable (contrast).
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */

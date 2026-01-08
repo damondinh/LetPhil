@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Focus Sprint Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <h1 class="title">Focus Sprint Timer</h1>
+          <p class="sub">
+            A usable timer that updates every second using
+            <span class="kbd">setInterval</span>. Practice pause/reset with
+            <span class="kbd">clearInterval</span>.
+          </p>
+        </div>
+        <div class="badge">Synchronous vs Asynchronous JS</div>
+      </header>
+
+      <main class="content">
+        <div class="grid">
+          <section class="panel">
+            <h2>Settings</h2>
+
+            <div class="inputs">
+              <label class="field">
+                <span>Minutes</span>
+                <input
+                  id="minutesInput"
+                  type="number"
+                  min="0"
+                  max="60"
+                  value="5"
+                />
+              </label>
+
+              <label class="field">
+                <span>Seconds</span>
+                <input
+                  id="secondsInput"
+                  type="number"
+                  min="0"
+                  max="59"
+                  value="0"
+                />
+              </label>
+            </div>
+
+            <p class="small">Quick test: set 0 minutes and 10 seconds.</p>
+          </section>
+
+          <section class="panel">
+            <h2>Timer</h2>
+
+            <div class="timerCard">
+              <div id="timeDisplay" class="timeDisplay">05:00</div>
+              <div id="statusText" class="statusText">
+                Idle — set a sprint and press Start
+              </div>
+
+              <div class="btnRow" style="margin-top: 12px">
+                <button id="startBtn" class="primary">Start</button>
+                <button id="pauseBtn" disabled>Pause</button>
+                <button id="resetBtn" class="danger">Reset</button>
+              </div>
+
+              <div class="progressOuter" aria-label="Progress bar">
+                <div id="progressBarFill" class="progressFill"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

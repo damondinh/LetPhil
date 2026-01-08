@@ -1,0 +1,22 @@
+body{
+  margin:0;min-height:100vh;
+  font-family:system-ui;
+  background:linear-gradient(120deg,#0f172a,#020617);
+  color:#e5e7eb;
+  display:grid;place-items:center;
+}
+.app{
+  background:rgba(255,255,255,0.05);
+  padding:32px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.12);
+}
+.badge{
+  display:inline-block;
+  margin-top:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#38bdf8;
+  color:#020617;
+  font-weight:700;
+}

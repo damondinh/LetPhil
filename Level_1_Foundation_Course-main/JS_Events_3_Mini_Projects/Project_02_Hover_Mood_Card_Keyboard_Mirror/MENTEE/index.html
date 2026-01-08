@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 02 — Hover Mood Card + Keyboard Mirror</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <h1>Hover Mood Card + Keyboard Mirror</h1>
+      <p>Practice: <strong>mouseover / mouseout</strong> and <strong>keydown / keyup</strong></p>
+    </header>
+
+    <section class="grid">
+      <article id="moodCard" class="card">
+        <h2 class="cardTitle">Mood Card</h2>
+        <p class="muted">Hover over this card to trigger events.</p>
+        <p id="moodText" class="moodText">Current mood: calm</p>
+      </article>
+
+      <article class="card">
+        <h2 class="cardTitle">Keyboard Mirror</h2>
+        <p class="muted">Type inside the input and watch events update the UI.</p>
+
+        <label class="label" for="typeInput">Type here:</label>
+        <input id="typeInput" class="input" type="text" placeholder="Start typing..." />
+
+        <div class="infoBox">
+          <p><strong>Live text:</strong> <span id="mirrorText">...</span></p>
+          <p><strong>Last key:</strong> <span id="lastKey">none</span></p>
+          <p><strong>Event:</strong> <span id="eventType">none</span></p>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p class="tip">Tip: open DevTools Console to see extra logs.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

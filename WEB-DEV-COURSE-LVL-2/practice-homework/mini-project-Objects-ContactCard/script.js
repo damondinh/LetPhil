@@ -137,7 +137,6 @@ form.addEventListener("submit", (event) => {
   form.reset();
 });
 
-
 /*
 STEP 7 — Add a "click" listener on clearBtn
   - When clicked, call restoreEmptyState()

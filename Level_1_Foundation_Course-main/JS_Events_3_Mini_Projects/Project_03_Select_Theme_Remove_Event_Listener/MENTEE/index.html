@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 03 — Select Theme + Remove Event Listener</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme theme-space">
+  <main class="shell">
+    <header class="top">
+      <h1>Select Theme + Remove Listener</h1>
+      <p>Practice: <strong>change</strong> events + <strong>removeEventListener()</strong></p>
+    </header>
+
+    <section class="panel">
+      <h2 class="title">Theme Picker (change event)</h2>
+      <p class="muted">Choose a theme. JavaScript will swap body classes.</p>
+
+      <label class="label" for="themeSelect">Pick a theme:</label>
+      <select id="themeSelect" class="select">
+        <option value="space" selected>Space</option>
+        <option value="sunset">Sunset</option>
+        <option value="ocean">Ocean</option>
+      </select>
+
+      <p id="themeStatus" class="status">Theme: space</p>
+    </section>
+
+    <section class="panel">
+      <h2 class="title">Remove Event Listener Demo</h2>
+      <p class="muted">
+        Click the button to trigger an event listener. Then turn it off.
+      </p>
+
+      <div class="row">
+        <button id="listenBtn" class="btn primary">Click Me (listener ON)</button>
+        <button id="stopBtn" class="btn danger">Stop Listening</button>
+        <button id="startBtn" class="btn ghost">Start Listening</button>
+      </div>
+
+      <p id="clickCountText" class="status">Button clicks: 0</p>
+    </section>
+
+    <footer class="foot">
+      <p class="muted">When the listener is removed, clicks should do nothing.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

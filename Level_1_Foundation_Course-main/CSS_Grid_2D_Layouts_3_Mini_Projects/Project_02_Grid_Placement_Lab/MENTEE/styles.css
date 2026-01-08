@@ -1,0 +1,66 @@
+/*
+  🧠 Project 2 — Grid Placement Lab 
+  IMPORTANT RULES:
+  - After each step: SAVE → REFRESH.
+*/
+
+/* STEP 1 — Base styling */
+/*
+  Style body and .page like project 1.
+  Add a clear background so blocks stand out.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Enable grid + define columns/rows */
+/*
+  Select .board and set display: grid.
+  Define 4 columns using grid-template-columns: repeat(4, 1fr).
+  Set grid-auto-rows to a fixed height (example: 110px).
+  Add gap.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Style blocks so placement is obvious */
+/*
+  Select .block and give it background, border, border-radius.
+  Center its text so labels are easy to read.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Place/spans using grid-column */
+/*
+  Select .block--a and make it span 2 columns.
+  Hint: grid-column: 1 / 3 means start at line 1, end at line 3 (covers 2 columns).
+  Try different start/end numbers to see how it moves.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 5 — Place/spans using grid-row (make D taller) */
+/*
+  Select .block--d and make it span 2 rows.
+  Hint: grid-row: 2 / 4 covers 2 row tracks.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 6 — Align items (inside the grid cells) */
+/*
+  On .board, try justify-items and align-items.
+  Try values: start, center, end, stretch.
+  This controls how each item sits inside its cell.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 7 — Optional: align the whole grid area */
+/*
+  If .board has a fixed height, you can align the grid tracks using:
+  - justify-content and align-content
+  This is optional but useful to understand.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */

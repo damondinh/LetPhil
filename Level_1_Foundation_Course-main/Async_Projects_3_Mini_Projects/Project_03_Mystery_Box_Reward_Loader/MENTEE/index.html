@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mystery Box Reward Loader</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <h1 class="title">Mystery Box Reward Loader</h1>
+          <p class="sub">
+            Practice Promises using <span class="kbd">then/catch</span> OR
+            <span class="kbd">async/await</span>. This loader sometimes fails on
+            purpose so you can handle errors.
+          </p>
+        </div>
+        <div class="badge">Synchronous vs Asynchronous JS</div>
+      </header>
+
+      <main class="content">
+        <div class="grid">
+          <section class="panel">
+            <h2>Mode</h2>
+
+            <div class="mode">
+              <label class="radio">
+                <input
+                  id="thenModeRadio"
+                  type="radio"
+                  name="mode"
+                  value="then"
+                  checked
+                />
+                <span
+                  >Use <strong>.then()</strong> /
+                  <strong>.catch()</strong></span
+                >
+              </label>
+
+              <label class="radio">
+                <input
+                  id="asyncModeRadio"
+                  type="radio"
+                  name="mode"
+                  value="async"
+                />
+                <span
+                  >Use <strong>async/await</strong> +
+                  <strong>try/catch</strong></span
+                >
+              </label>
+            </div>
+
+            <div class="btnRow" style="margin-top: 10px">
+              <button id="openBtn" class="primary">Open Mystery Box</button>
+              <button id="resetBtn">Reset</button>
+            </div>
+
+            <p class="small">
+              Tip: click many times to see success AND failure.
+            </p>
+          </section>
+
+          <section class="panel">
+            <h2>Result</h2>
+
+            <div class="boxWrap">
+              <div class="box" id="boxVisual" aria-hidden="true">⬣</div>
+
+              <div id="loadingText" class="loadingText" hidden>
+                Loading... decoding reward signal...
+              </div>
+
+              <div id="resultCard" class="resultCard" hidden>
+                <div class="resultTitle">Reward</div>
+                <div class="resultMain">
+                  <div id="rewardEmoji" class="rewardEmoji">✨</div>
+                  <div>
+                    <div id="rewardName" class="rewardName">—</div>
+                    <div id="rewardMeta" class="rewardMeta">—</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="errorCard" class="errorCard" hidden>
+                <div class="errorTitle">Error</div>
+                <div id="errorMessage" class="errorMessage">—</div>
+                <div class="errorHint">
+                  Try again — your code should handle failures gracefully.
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+/*
+  🧠 Project 3 — Dashboard Grid (Template Areas) 
+
+  IMPORTANT RULES:
+
+  - After each step: SAVE → REFRESH.
+*/
+
+/* STEP 1 — Base styling (so the dashboard is readable) */
+/*
+  Style body: margin:0 and a font-family.
+  Give the page a background-color.
+  Style each section (.header, .sidebar, .main, .panel, .footer) so you can see them.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Enable grid on the layout container */
+/*
+  Select .layout and set display: grid.
+  Add min-height: 100vh so the layout fills the screen.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Define columns + rows for the dashboard */
+/*
+  Create 3 columns: sidebar, main, panel.
+  Example: 240px 1fr 320px
+  Create rows: header, content, footer.
+  Example: auto 1fr auto
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Use grid-template-areas (advanced) */
+/*
+  Add grid-template-areas on .layout.
+  Example idea:
+  "header header header"
+  "sidebar main panel"
+  "footer footer footer"
+  Then assign each element with grid-area:
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 5 — Assign each section to its area */
+/*
+  Set grid-area for:
+  - .header
+  - .sidebar
+  - .main
+  - .panel
+  - .footer
+  After this, your dashboard should snap into place.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 6 — Align items (bonus polish) */
+/*
+  Try gap on .layout.
+  Try align-items / justify-items (optional).
+  This is just to polish spacing and alignment.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 7 — Responsive switch (stack on mobile) */
+/*
+  Add a media query (example: max-width: 800px).
+  Inside it: change grid-template-columns to 1fr.
+  Update grid-template-areas so it stacks vertically:
+  "header"
+  "main"
+  "panel"
+  "sidebar"
+  "footer"
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */

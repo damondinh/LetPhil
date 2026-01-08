@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 01 — Click Counter + Toggle Panel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Click Counter + Toggle Panel</h1>
+      <p class="sub">Practice: <strong>click events</strong> + simple UI updates.</p>
+    </header>
+
+    <section class="card">
+      <h2 class="cardTitle">Counter</h2>
+
+      <p class="countLabel">Current count:</p>
+      <p id="countValue" class="countValue">0</p>
+
+      <div class="row">
+        <button id="increaseBtn" class="btn primary">+1 Click</button>
+        <button id="resetBtn" class="btn">Reset</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="cardTitle">Toggle Panel</h2>
+      <p class="muted">Click the button to show/hide the panel.</p>
+
+      <button id="toggleBtn" class="btn ghost">Toggle Panel</button>
+
+      <div id="panel" class="panel isHidden">
+        <p class="panelText">
+          👋 Hi! I appear and disappear using a <code>click</code> event.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p id="debugText" class="debug">Debug area: (watch console too)</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

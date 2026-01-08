@@ -1,0 +1,27 @@
+/* Simple styling so the page looks clean.
+   (This bundle focuses on JavaScript + console, so CSS is intentionally minimal.) */
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 24px;
+  background: #0b0d12;
+  color: #f3f6ff;
+}
+
+.card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+code {
+  background: rgba(255,255,255,0.12);
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.hint { opacity: 0.8; }

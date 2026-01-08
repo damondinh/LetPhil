@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 3 — Attribute Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>Project 3 — Attribute Gallery</h1>
+          <p class="subtitle">
+            DOM practice: select → modify → create → remove → classList →
+            attributes
+          </p>
+        </div>
+        <span class="badge">DOM</span>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Attribute Gallery</h2>
+          <p class="subtitle">
+            Add image cards by URL, change alt attributes, remove cards.
+          </p>
+
+          <div class="row">
+            <input
+              id="imgUrlInput"
+              type="text"
+              placeholder="Paste an image URL..."
+            />
+            <button id="addImageBtn" class="btn">Add Image</button>
+            <button id="clearBtn" class="btn">Clear All</button>
+          </div>
+
+          <div class="gallery" id="gallery">
+            <div class="thumb" data-id="1">
+              <img
+                src="https://picsum.photos/seed/dom1/400/260"
+                alt="Random placeholder 1"
+              />
+              <div class="row">
+                <button class="btn setAltBtn">Set Alt</button>
+                <button class="btn removeThumbBtn">Remove</button>
+              </div>
+              <p class="small">
+                Click <strong>Set Alt</strong> then inspect the image element.
+              </p>
+            </div>
+
+            <div class="thumb" data-id="2">
+              <img
+                src="https://picsum.photos/seed/dom2/400/260"
+                alt="Random placeholder 2"
+              />
+              <div class="row">
+                <button class="btn setAltBtn">Set Alt</button>
+                <button class="btn removeThumbBtn">Remove</button>
+              </div>
+              <p class="small">
+                This card has a <code>data-id</code> attribute.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <aside class="card">
+          <h2>Attribute Focus</h2>
+          <ul>
+            <li>Read: <code>getAttribute()</code></li>
+            <li>Set: <code>setAttribute()</code></li>
+            <li>Remove: <code>removeAttribute()</code></li>
+            <li>Practice: <code>querySelectorAll()</code> + loops</li>
+          </ul>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        Tip: If something doesn't work, verify your selectors first ✅
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

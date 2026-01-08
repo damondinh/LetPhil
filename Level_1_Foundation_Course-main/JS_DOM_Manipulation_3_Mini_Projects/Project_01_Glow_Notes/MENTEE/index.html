@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 1 — Glow Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>Project 1 — Glow Notes</h1>
+          <p class="subtitle">
+            DOM practice: select → modify → create → remove → classList →
+            attributes
+          </p>
+        </div>
+        <span class="badge">DOM</span>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Glow Notes</h2>
+          <p class="subtitle">
+            Select elements, create notes, and remove them.
+          </p>
+
+          <div class="row">
+            <label for="noteInput">New note:</label>
+            <input id="noteInput" type="text" placeholder="Type a note..." />
+            <button id="addBtn" class="btn">Add Note</button>
+          </div>
+
+          <ul id="noteList" class="noteList">
+            <li class="note">
+              <p class="noteText">Example note (try removing me)</p>
+              <button class="btn danger removeBtn">Remove</button>
+            </li>
+          </ul>
+        </article>
+
+        <aside class="card">
+          <h2>DOM Targets</h2>
+          <p class="subtitle">Practice selecting:</p>
+          <ul>
+            <li><span class="pill">#noteInput</span> (getElementById)</li>
+            <li><span class="pill">#addBtn</span> (querySelector)</li>
+            <li><span class="pill">#noteList</span> (querySelector)</li>
+            <li><span class="pill">.removeBtn</span> (querySelectorAll)</li>
+          </ul>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        Tip: If something doesn't work, verify your selectors first ✅
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

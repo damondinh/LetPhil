@@ -1,0 +1,57 @@
+/*
+  Project 2 Theme: FILTER & MAP STUDIO 🎛️
+*/
+:root{
+  --bg:#080712;
+  --panel: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.14);
+  --text:#f3f6ff;
+  --muted: rgba(243,246,255,0.78);
+  --shadow: 0 18px 60px rgba(0,0,0,0.52);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 520px at 18% 10%, rgba(56,189,248,0.20), transparent 60%),
+    radial-gradient(900px 520px at 85% 15%, rgba(245,158,11,0.16), transparent 62%),
+    var(--bg);
+}
+.app{max-width:980px;margin:0 auto;padding:28px 18px 44px}
+.header{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+h1{margin:0;font-size:clamp(28px,3.2vw,46px);line-height:1.05}
+.subtitle{margin:10px 0 0;color:var(--muted);line-height:1.6;max-width:75ch}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+@media(min-width:900px){.grid{grid-template-columns:1.1fr 0.9fr}}
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(10px);
+}
+.card h2{margin:0 0 10px;font-size:18px}
+.card li,.card p{color:var(--muted);line-height:1.6}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 12px;border-radius:999px;
+  background: linear-gradient(90deg, rgba(56,189,248,0.16), rgba(245,158,11,0.14));
+  border:1px solid rgba(56,189,248,0.35);
+  font-weight:900
+}
+.kbd{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.16);
+  font-weight:800;font-size:0.92em
+}
+.callout{
+  margin-top:12px;border-radius:16px;
+  border:1px solid rgba(56,189,248,0.35);
+  background: linear-gradient(90deg, rgba(56,189,248,0.12), rgba(245,158,11,0.10));
+  padding:12px 14px;color:var(--muted)
+}
+.footer{margin-top:16px;color:rgba(243,246,255,0.60);font-size:13px}

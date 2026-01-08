@@ -1,0 +1,55 @@
+/*
+  🧠 Project 3 — Responsive Layout + Image 
+  IMPORTANT RULES:
+  - After each step: SAVE → REFRESH.
+*/
+
+/* STEP 1 — Base styling + make image responsive by default */
+/*
+  Style body and .page (margin 0, font-family, padding).
+  IMPORTANT: make the image responsive:
+  - .feature__img { max-width: 100%; height: auto; display: block; }
+  This ensures the image never overflows on small screens.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Mobile first layout (stacked) */
+/*
+  Mobile-first means: default layout is for small screens.
+  Select .feature and style it like a card (background, border, radius).
+  Keep it stacked by default (no flex needed yet).
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Desktop layout (side-by-side) using a media query */
+/*
+  Add a media query: @media (min-width: 900px) { ... }
+  Inside it:
+  - set .feature to display:flex
+  - set gap
+  - align-items: center
+  Now image + content should sit side-by-side on desktop.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Control image sizing on desktop */
+/*
+  Inside the desktop media query:
+  - give the image a fixed width OR flex-basis
+  - example: .feature__img { width: 420px; }
+  This prevents the image from taking too much space.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 5 — Responsive spacing + text tweaks */
+/*
+  Add padding differences across breakpoints.
+  Example: smaller padding on mobile, bigger on desktop.
+  Optional: adjust font sizes slightly at desktop.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */

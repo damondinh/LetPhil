@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coffee Order Status Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <h1 class="title">Coffee Order Status Tracker</h1>
+          <p class="sub">
+            Click <span class="kbd">Place Order</span> and watch async updates
+            move through the timeline. Practice
+            <span class="kbd">setTimeout</span> +
+            <span class="kbd">clearTimeout</span>.
+          </p>
+        </div>
+        <div class="badge">Synchronous vs Asynchronous JS</div>
+      </header>
+
+      <main class="content">
+        <div class="grid">
+          <section class="panel">
+            <h2>Controls</h2>
+            <div class="btnRow">
+              <button id="placeBtn" class="primary">Place Order</button>
+              <button id="cancelBtn" class="danger" disabled>Cancel</button>
+              <button id="resetBtn">Reset</button>
+            </div>
+            <p class="small">
+              Tip: open DevTools → Console. You’ll see logs that prove what is
+              SYNC vs ASYNC.
+            </p>
+          </section>
+
+          <section class="panel">
+            <h2>Timeline</h2>
+            <div class="card">
+              <div class="statusLine">
+                <div class="statusLabel">Status</div>
+                <div id="statusText" class="statusText toneNeutral">Idle</div>
+              </div>
+
+              <div class="statusLine">
+                <div class="statusLabel">Order ID</div>
+                <div id="orderIdText" class="orderId">—</div>
+              </div>
+
+              <div class="timeline">
+                <div id="stepPending" class="step">
+                  <div class="stepChip">1</div>
+                  <div>
+                    <div class="stepName">Pending</div>
+                    <div class="stepDesc">Queued in the system</div>
+                  </div>
+                </div>
+
+                <div id="stepBrewing" class="step">
+                  <div class="stepChip">2</div>
+                  <div>
+                    <div class="stepName">Brewing</div>
+                    <div class="stepDesc">Machine is working</div>
+                  </div>
+                </div>
+
+                <div id="stepReady" class="step">
+                  <div class="stepChip">3</div>
+                  <div>
+                    <div class="stepName">Ready</div>
+                    <div class="stepDesc">Pickup available</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+:root{
+  --bg:#0b1220;
+  --card:#101a2e;
+  --text:#e9efff;
+  --muted:#9fb0d8;
+  --accent:#7c5cff;
+  --accent2:#2ee59d;
+  --border:rgba(255,255,255,0.10);
+  --shadow:0 20px 45px rgba(0,0,0,0.45);
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(124,92,255,0.35), transparent 60%),
+              radial-gradient(900px 500px at 90% 20%, rgba(46,229,157,0.22), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:28px 14px;
+}
+
+.app{
+  width:min(900px, 100%);
+  display:grid;
+  gap:18px;
+}
+
+.header{
+  padding:18px 18px 6px;
+}
+.header h1{
+  margin:0;
+  font-size:28px;
+  letter-spacing:0.2px;
+}
+.sub{
+  margin:8px 0 0;
+  color:var(--muted);
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+
+.cardTitle{
+  margin:0 0 10px;
+  font-size:18px;
+}
+
+.countLabel{ margin:0; color:var(--muted); }
+.countValue{
+  margin:8px 0 14px;
+  font-size:44px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--accent2);
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:700;
+  transition: transform 0.08s ease, background 0.2s ease, border 0.2s ease;
+}
+.btn:hover{
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-1px);
+}
+.btn:active{ transform: translateY(0px) scale(0.99); }
+
+.primary{
+  border-color: rgba(124,92,255,0.55);
+  background: rgba(124,92,255,0.22);
+}
+.ghost{
+  border-color: rgba(46,229,157,0.45);
+  background: rgba(46,229,157,0.14);
+}
+
+.panel{
+  margin-top:12px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background: rgba(16,26,46,0.65);
+}
+.panelText{ margin:0; color:var(--text); }
+code{ color: var(--accent2); font-weight:800; }
+
+.isHidden{ display:none; }
+
+.footer{
+  padding:0 18px 18px;
+}
+.debug{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}

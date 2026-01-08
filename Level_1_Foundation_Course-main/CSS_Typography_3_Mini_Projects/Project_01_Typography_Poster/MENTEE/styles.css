@@ -1,0 +1,65 @@
+/*
+  🧠 PROJECT: Typography Poster — Font Family/Size/Weight/Style
+
+  ✅ TYPOGRAPHY TOPICS PRACTICED
+  - font-family
+  - font-size
+  - font-weight
+  - font-style
+  - text-align
+  - line-height
+  - letter-spacing / word-spacing
+  - text-transform
+  - text-decoration
+  - importing Google Fonts (project 3)
+
+  IMPORTANT 
+  - After each step: SAVE → REFRESH.
+
+  🎯 GOAL: Practice changing font-family, font-size, font-weight, and font-style to create hierarchy.
+*/
+
+/* STEP 1 — Base page font + background */
+/*
+  Select body and remove default margin.
+  Set a base font-family for the whole page (example: system-ui).
+  Set a background color and center the poster.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Poster container typography */
+/*
+  Select .poster and set width (example: 520px) and padding.
+  Give it a background color and border-radius so it looks like a card/poster.
+  Set text-align: center so it feels like a poster.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Headline hierarchy (font-size + weight) */
+/*
+  Select .headline.
+  Make it the biggest text using font-size (example: 3rem).
+  Make it bold using font-weight (example: 800).
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Tagline and subhead (style differences) */
+/*
+  Select .tagline and make it smaller using font-size.
+  Select .subhead and try font-style: italic.
+  This shows how font-style changes the “tone”.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 5 — Labels (weight + letter spacing) */
+/*
+  Select .label and make it bold (font-weight).
+  Add letter-spacing (example: 0.08em) to make it feel like a label.
+  Bonus: set text-transform: uppercase on .label.
+*/
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
