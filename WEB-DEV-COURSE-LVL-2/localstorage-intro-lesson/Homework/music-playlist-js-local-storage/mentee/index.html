@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Step 1: Add meta tag to tell the browser to use UTF-8 character encoding -->
@@ -11,18 +11,21 @@
     <title>🎵 Custom Music Playlist Builder</title>
 
     <!-- Step 4: Link your external CSS file so the HTML elements get styled -->
-    <link rel="stylesheet" href="styles.mentee.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <!-- Step 5: Create a container that wraps everything for layout and styling -->
     <div class="container">
       <!-- Step 6: Add a heading at the top of your app. This helps users understand what this page is about. -->
       <!-- Use an <h1> tag and write something like "🎵 Build Your Vibe Playlist" -->
       <!-- This heading is mostly for users and screen readers -->
+      <h1>🎵 Build Your Vibe Playlist</h1>
 
       <!-- Step 7: Add a button that will allow users to toggle between dark and light mode -->
       <!-- Give it an id="toggleModeBtn" so we can select it in JavaScript -->
       <!-- Example text: "Dark Mode" -->
+      <button id="toggleModeBtn">Dark Mode</button>
 
       <!-- Step 8: Create a <form> that lets users input new song info -->
       <!-- Give the form an id="songForm" so we can attach event listeners in JavaScript -->
@@ -48,17 +51,51 @@
       <!-- 5. Button to submit the form -->
       <!-- Use button type="submit" with text like "Add Song" -->
 
+      <form id="songForm">
+        <label>Song Title</label>
+        <input type="text" id="title" required />
+
+        <label>Artist</label>
+        <input type="text" id="artist" required />
+
+        <label>Song Link</label>
+        <input type="url" id="link" required />
+
+        <label>Mood</label>
+        <select id="mood" required>
+          <option value="">--Please choose an option--</option>
+          <option value="chill">Chill</option>
+          <option value="hype">Hype</option>
+          <option value="romantic">Romantic</option>
+          <option value="sad">Sad</option>
+        </select>
+
+        <button type="submit">Add Song</button>
+      </form>
+
       <!-- Step 9: Add a dropdown (select tag) to filter songs by mood -->
       <!-- Give it an id="filterMood" -->
       <!-- Add options: All, Chill, Hype, Romantic, Sad -->
 
+      <select id="filterMood" required>
+        <option value="all">All</option>
+        <option value="chill">Chill</option>
+        <option value="hype">Hype</option>
+        <option value="romantic">Romantic</option>
+        <option value="sad">Sad</option>
+      </select>
+
       <!-- Step 10: Add a button to shuffle the playlist -->
       <!-- Give it an id="shuffleBtn" and text like "Shuffle Playlist" -->
 
+      <button id="shuffleBtn">Shuffle Playlist</button>
+
       <!-- Step 11: Add a div to hold all the playlist songs -->
       <!-- Give this div an id="playlist" and class="playlist-container" -->
+      <div id="playlist" class="playlist-container"></div>
     </div>
 
     <!-- Step 12: Link to your JavaScript file that will control all the logic -->
+    <script src="script.js"></script>
   </body>
 </html>

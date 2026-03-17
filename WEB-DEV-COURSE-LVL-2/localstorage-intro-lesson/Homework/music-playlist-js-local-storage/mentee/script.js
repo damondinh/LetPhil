@@ -2,6 +2,8 @@
 // Each song will be an object with { title, artist, mood, link }
 //  Declare a variable named "playlist" and set it to an empty array
 // 🧪 Console log to confirm the playlist is initialized as an empty array
+let playlist = [];
+//console.log(playlist);
 
 //  Step 2: Get references to all the DOM elements (HTML elements we interact with)
 //  Use document.getElementById() to store references to:
@@ -15,6 +17,15 @@
 // - shuffle button     → id="shuffleBtn"
 // - dark mode button   → id="toggleModeBtn"
 //  Console log to confirm all DOM elements were successfully selected
+const titleInput = document.getElementById('title');
+const artistInput = document.getElementById('artist');
+const linkInput = document.getElementById('link');
+const form = document.getElementById('songForm');
+const playlistContainer = document.getElementById('playlist');
+const filterDropdown = document.getElementById('filterMood');
+const shuffleButton = document.getElementById('shuffleBtn');
+const darkModeButton = document.getElementById('toggleModeBtn');
+// console.log(titleInput);
 
 // Step 3: Function to load the playlist from localStorage
 //  Define a function called loadPlaylist()
@@ -24,6 +35,18 @@
 // - Then update the playlist array with the parsed data
 //  Console log to show the playlist loaded from localStorage
 //  Console log to show that no playlist data was found (if none exists)
+function loadPlaylist() {
+  const savedPlaylist = localStorage.getItem("customPlaylist");
+  if (savedPlaylist) {
+    playlist = JSON.parse(saved);
+    console.log(playlist);
+  }
+  else {
+    console.log("No playlist found in local storage");
+  }
+}
+loadPlaylist();
+console.log(playlist);
 
 //  Step 4: Function to save the playlist into localStorage
 //  Define a function called savePlaylist()
@@ -31,6 +54,10 @@
 // - Use JSON.stringify() to convert the playlist array to a string
 // - Use localStorage.setItem() to save it with the key "customPlaylist"
 //  Console log to confirm playlist was saved to localStorage
+function savePlaylist() {
+  localStorage.setItem("customPlaylist", JSON.stringify(playlist));
+  console.log("Playlist saved to local storage")
+}
 
 //  Step 5: Function to render the songs onto the screen
 //  Define a function called renderPlaylist(songsToRender)
@@ -59,6 +86,34 @@
 //    → Remove the song from the playlist array using splice()
 //    → Save and re-render the playlist again
 // 🧪 Console log to confirm a song was deleted and show its index
+function renderPlaylist(songsToRender) {
+  playlistContainer.innerHTML = "";
+  
+  songsToRender.forEach((song, index) => {
+    let songCard = document.createElement("div");
+    songCard.classList.add("song-card");
+
+    songCard.innerHTML = `
+                    <strong>${song.title}</strong><br>
+                    <em>Artist:</em> ${song.artist}<br>
+                    <em>Mood:</em> ${song.mood}<br>
+                    <a href="${song.link}" target="_blank">🎧 Listen</a><br>
+                    <button class="delete-btn" data-index="${index}">🗑️ Delete</button>
+                  `;
+    playlistContainer.appendChild(songCard);
+  })
+  
+  const deleteBtns = document.querySelectorAll(".delete-btn");
+
+  deleteBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const index = this.getAttribute("data-index");
+      playlist.splice(index, 1);
+      savePlaylist();
+      renderPlaylist(playlist);
+    });
+  });
+}
 
 // ➕ Step 6: Function to handle adding a new song
 // 👉 Define a function called addSong(e)
