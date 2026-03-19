@@ -20,6 +20,7 @@ let playlist = [];
 const titleInput = document.getElementById('title');
 const artistInput = document.getElementById('artist');
 const linkInput = document.getElementById('link');
+const moodSelect = document.getElementById('mood');
 const form = document.getElementById('songForm');
 const playlistContainer = document.getElementById('playlist');
 const filterDropdown = document.getElementById('filterMood');
@@ -38,7 +39,7 @@ const darkModeButton = document.getElementById('toggleModeBtn');
 function loadPlaylist() {
   const savedPlaylist = localStorage.getItem("customPlaylist");
   if (savedPlaylist) {
-    playlist = JSON.parse(saved);
+    playlist = JSON.parse(savedPlaylist);
     console.log(playlist);
   }
   else {
@@ -125,7 +126,20 @@ function renderPlaylist(songsToRender) {
 // - Call renderPlaylist(playlist)
 // - Use songForm.reset() to clear the form
 // 🧪 Console log to confirm a new song was added
-
+function addSong(e) {
+  e.preventDefault();
+  const newSong = {
+    title: titleInput.value.trim(),
+    artist: artistInput.value.trim(),
+    mood: moodSelect.value.trim(),
+    link: linkInput.value.trim()
+  };
+  playlist.push(newSong);
+  savePlaylist();
+  renderPlaylist(playlist);
+  songForm.reset();
+  console.log("New song was added");
+}
 // 🎯 Step 7: Filter playlist by mood
 // 👉 Define a function called filterPlaylist()
 // Inside the function:
@@ -136,6 +150,17 @@ function renderPlaylist(songsToRender) {
 // 🧪 Console log to show which mood was selected for filtering
 // 🧪 Console log to show filtered results
 
+function filterPlaylist() {
+  const selectedMood = filterDropdown.value;
+  if (selectedMood === "all") {
+    renderPlaylist(playlist);
+  }
+  else {
+    const filteredPlaylist = playlist.filter((song) => song.mood === selectedMood);
+    renderPlaylist(filteredPlaylist);
+  }
+}
+
 // 🔀 Step 8: Shuffle the playlist using Fisher-Yates algorithm
 // 👉 Define a function called shufflePlaylist()
 // Inside the function:
@@ -144,6 +169,16 @@ function renderPlaylist(songsToRender) {
 // - Swap playlist[i] and playlist[j] using destructuring
 // - After the loop, save and render the playlist again
 // 🧪 Console log to confirm the playlist was shuffled
+function shufflePlaylist() {
+  for (i = playlist.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1))
+    [playlist[i], playlist[j]] = [playlist[j], playlist[i]]
+  }
+
+  savePlaylist();
+  renderPlaylist(playlist);
+  console.log("playlist was shuffled");
+}
 
 // 🌙 Step 9: Toggle between Dark Mode and Light Mode
 // 👉 Define a function called toggleDarkMode()
@@ -153,6 +188,13 @@ function renderPlaylist(songsToRender) {
 // - Update toggle button text accordingly ("Light Mode" or "Dark Mode")
 // - Save the theme preference in localStorage (key = "theme")
 // 🧪 Console log to confirm dark mode toggle state
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  darkModeButton.textContent = isDark ? "Light Mode" : "Dark Mode";
+  localStorage.setItem("theme", isDark ? "dark": "light");
+  console.log(isDark ? "dark mode": "light mode");
+}
 
 // 💡 Step 10: Load the saved theme from localStorage
 // 👉 Define a function called loadTheme()
@@ -162,6 +204,7 @@ function renderPlaylist(songsToRender) {
 // 🧪 Console log to confirm dark theme was loaded
 // 🧪 Console log to confirm light/default theme
 
+
 // 🎯 Step 11: Add event listeners to buttons and form
 // 👉 Add the following event listeners:
 // - songForm "submit" → addSong
@@ -169,6 +212,8 @@ function renderPlaylist(songsToRender) {
 // - shuffleBtn "click" → shufflePlaylist
 // - toggleModeBtn "click" → toggleDarkMode
 // 🧪 Console log to confirm all event listeners were attached
+form.addEventListener("submit", addSong);
+darkModeButton.addEventListener("click", toggleDarkMode);
 
 // 🚀 Step 12: Initialize the app
 // 👉 Call the following functions:
