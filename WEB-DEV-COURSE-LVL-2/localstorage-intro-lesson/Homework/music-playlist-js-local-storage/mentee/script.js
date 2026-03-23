@@ -25,7 +25,7 @@ const form = document.getElementById('songForm');
 const playlistContainer = document.getElementById('playlist');
 const filterDropdown = document.getElementById('filterMood');
 const shuffleButton = document.getElementById('shuffleBtn');
-const darkModeButton = document.getElementById('toggleModeBtn');
+const toggleModeBtn = document.getElementById('toggleModeBtn');
 // console.log(titleInput);
 
 // Step 3: Function to load the playlist from localStorage
@@ -191,7 +191,7 @@ function shufflePlaylist() {
 function toggleDarkMode() {
   document.body.classList.toggle("dark");
   const isDark = document.body.classList.contains("dark");
-  darkModeButton.textContent = isDark ? "Light Mode" : "Dark Mode";
+  toggleModeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
   localStorage.setItem("theme", isDark ? "dark": "light");
   console.log(isDark ? "dark mode": "light mode");
 }
@@ -203,7 +203,15 @@ function toggleDarkMode() {
 // - If it’s "dark", add the "dark" class to body and update toggle button text
 // 🧪 Console log to confirm dark theme was loaded
 // 🧪 Console log to confirm light/default theme
-
+function loadTheme() {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+    toggleModeBtn.textContent = "Light Mode";
+    console.log("Dark theme loaded");
+  }
+  console.log("Current theme is " + theme);
+}
 
 // 🎯 Step 11: Add event listeners to buttons and form
 // 👉 Add the following event listeners:
@@ -213,7 +221,11 @@ function toggleDarkMode() {
 // - toggleModeBtn "click" → toggleDarkMode
 // 🧪 Console log to confirm all event listeners were attached
 form.addEventListener("submit", addSong);
-darkModeButton.addEventListener("click", toggleDarkMode);
+moodSelect.addEventListener("change", filterPlaylist);
+shuffleButton.addEventListener("click", shufflePlaylist);
+toggleModeBtn.addEventListener("click", toggleDarkMode);
+console.log("All event listeners attached");
+
 
 // 🚀 Step 12: Initialize the app
 // 👉 Call the following functions:
@@ -221,3 +233,7 @@ darkModeButton.addEventListener("click", toggleDarkMode);
 // - renderPlaylist(playlist)
 // - loadTheme()
 // 🧪 Console log to confirm the app has been initialized
+loadPlaylist();
+renderPlaylist(playlist);
+loadTheme();
+console.log("App Initialized");
