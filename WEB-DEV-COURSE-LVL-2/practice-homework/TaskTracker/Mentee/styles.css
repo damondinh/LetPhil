@@ -10,15 +10,123 @@
 ======================================================================= */
 
 /* STEP A: Base styles with CSS variables in :root and overrides in body.dark */
+:root {
+  --bg: #f7f7f7;
+  --text: #111;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.dark {
+  background-color: #1e1e2e; /* Deep slate for a dark, mysterious look */
+  color: #f0f0f0; /* Soft white text for contrast and readability */
+}
 
 /* STEP B: Style .header and .container for layout */
+.header {
+  font-size: 2rem; /* Large, readable title size */
+  margin-bottom: 1rem; /* Space below the title */
+  text-align: center; /* Center the title horizontally */
+}
 
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+}
 /* STEP C: Style #taskForm, #taskInput, #addBtn, #themeBtn */
+#taskForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
 
+#taskInput {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#addBtn {
+  background-color: #0077cc; 
+  color: #fff; 
+  border: none; 
+  padding: 0.75rem; 
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#addBtn:hover {
+  background-color: #005fa3;
+}
+
+#themeBtn {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 /* STEP D: Style #status for feedback */
-
+#status {
+  font-weight: bold;
+}
 /* STEP E: Style #taskList, .task-item, .task-text, and add .done */
+#taskList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.task-text {
+  padding: 1rem;
+}
+
+.done {
+  background-color: lightgreen;
+}
 
 /* STEP F: Style .btn, .btn.complete, .btn.delete */
+.btn {
+margin: 0.5rem;
+padding: 0.4rem 0.75rem;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
 
 /* STEP G: Add media query for responsive stacking */
+@media (max-width: 500px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  form {
+    gap: 0.75rem;
+  }
+
+  .task-item { 
+    padding: 0.75rem;
+  }
+}

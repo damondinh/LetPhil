@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>Mentee</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <!-- ======================================================================
   PROJECT: TaskTracker Lite — DOM + Events 
@@ -25,15 +27,27 @@
          • <input id="taskInput" type="text">
          • <button id="addBtn" type="submit">Add</button>
        * <p id="status" aria-live="polite"></p>
-       * <ul id="taskList"></ul>
--->
-       <header class="header">
-        <h1>Task Tracker</h1>
-       </header>
-    <!-- STEP 2 (CONNECT CSS):
-     - Add <link rel="stylesheet" href="styles.css"> in <head>. -->
+       * <ul id="taskList"></ul> -->
+    <header class="header">
+      <h1>Task Tracker</h1>
+      <button id="themeBtn" type="button" aria-pressed="false">
+        Toggle Theme
+      </button>
+    </header>
 
-    <!-- STEP 3 (CONNECT JS):
-     - Add <script src="script.js"></script> before </body> -->
+    <main class="container" type="text">
+      <form id="taskForm">
+        <input id="taskInput" type="text" required />
+        <button id="addBtn" type="submit">Add</button>
+      </form>
+      <p id="status" aria-live="polite"></p>
+      <ul id="taskList"></ul>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>
+<!-- STEP 2 (CONNECT CSS):
+     - Add <link rel="stylesheet" href="styles.css"> in <head> -->
+
+<!-- STEP 3 (CONNECT JS):
+     - Add <script src="script.js"></script> before </body> -->
