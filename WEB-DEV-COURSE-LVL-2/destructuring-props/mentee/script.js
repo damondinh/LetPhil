@@ -1,4 +1,4 @@
-,e// Project-01 — Passing "Props" & Destructuring
+// Project-01 — Passing "Props" & Destructuring
 // -------------------------------------------------------------
 // In this project, you will practice:
 // - treating objects like "props" passed into functions
@@ -337,11 +337,11 @@ let currentSearchTerm = "";
 let highlightJsFans = false;
 
 function setHelperStatus(message){
-helperStatus.textContent = message;
-helperStatus.classList.remove("highlight");
-if(message){
-helperStatus.classList.add("highlight");
-}
+  helperStatus.textContent = message;
+  helperStatus.classList.remove("highlight");
+  if(message){
+    helperStatus.classList.add("highlight");
+  }
 };
 
 
@@ -360,9 +360,7 @@ function getTopSkillsSummary(student) {
     const safeFirst = firstSkill || "N/A";
     const safeSecond = secondSkill || "N/A";
     return  `Top skills: ${safeFirst}, ${safeSecond}`;
-    
-    
-    
+
 }
     
 
@@ -391,8 +389,6 @@ function getVisibleStudents () {
     let filteredByLevel = students;
     if(currentLevelFilter !== "all") {
         filteredByLevel = students.filter((student) => student.level === currentLevelFilter);
-
-
     }
 
     // const filteredByLevel = students.filter((student) => {

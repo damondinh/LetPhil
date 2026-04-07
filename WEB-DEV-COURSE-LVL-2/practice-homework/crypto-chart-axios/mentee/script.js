@@ -37,3 +37,33 @@
 // - Use the given variable names exactly: api, coins, createChart, makeCharts.
 // - Use the methods: axios.create, api.get, Promise.all, .map(), .forEach(), document.getElementById, document.createElement.
 // - Follow these steps carefully to complete the project.
+const api = axios.create({
+  baseURL: "https://coinbase.com/api/v2/assets/prices",
+});
+
+const coins = ["bitcoin", "ethereum"];
+
+function createChart(Chart, coinId, labels, data, symbol) {
+  const chartSection = document.getElementById("chartSection");
+  const canvas = document.createElement("canvas");
+  canvas.id = coinId;
+  chartSection.appendChild(canvas);
+
+  new Chart(canvas, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: `${symbol}, Amount`,
+          data: data,
+          borderColor: "blue",
+          backgroundColor: "white",
+          borderWidth: 2,
+          fill: true,
+        },
+      ],
+      options: { responsive: true },
+    },
+  });
+}
