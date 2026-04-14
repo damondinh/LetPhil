@@ -1,12 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Tracker</title>
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-    <div class="app"></div>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Bar -->
+      <navbar class="navbar container">
+        <div class="logo">
+          <a href="index.html">
+            <span class="material-symbols-outlined"> trip </span>
+            <span>JobTrack</span>
+          </a>
+        </div>
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">
+                <button class="btn btn-primary">
+                  <span>Dashboard</span>
+                </button>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <button class="btn btn-primary">Contact</button>
+              </a>
+            </li>
+            <li>
+              <button class="btn btn-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
+                >
+                  <path
+                    d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm98 382q-70-70-70-170t70-170q70-70 170-70t170 70q70 70 70 170t-70 170q-70 70-170 70t-170-70Zm283.5-56.5Q640-413 640-480t-46.5-113.5Q547-640 480-640t-113.5 46.5Q320-547 320-480t46.5 113.5Q413-320 480-320t113.5-46.5ZM480-480Z"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </navbar>
+    </header>
+
+    <!-- Heading -->
+    <section class="heading container">
+      <div class="title">
+        <h1 class="text-lg">Job Applications</h1>
+        <p class="text-md">Track and manage your job search progress</p>
+      </div>
+      <div class="add-button">
+        <button
+          id="addJobApplicationBtn"
+          class="btn btn-secondary"
+          popovertarget="addJobApplicationModal"
+        >
+          + Add Application
+        </button>
+      </div>
+    </section>
+
+    <main class="container">
+      <!-- Dashboard -->
+      <section class="dashboard">
+        <div class="card-container">
+          <div class="card">
+            <div class="card-title">
+              <p class="text-th">TOTAL APPLICATIONS</p>
+              <p id="totalApplicationsCount" class="text-xl">0</p>
+            </div>
+            <div class="card-icon">
+              <span class="material-symbols-outlined"> trip </span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <p class="text-th">ACTIVE INTERVIEWS</p>
+              <p id="activeInterviewsCount" class="text-xl">0</p>
+            </div>
+            <div class="card-icon">
+              <span class="material-symbols-outlined"> contacts_product </span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <p class="text-th">OFFERS RECEIVED</p>
+              <p id="offersReceivedCount" class="text-xl">0</p>
+            </div>
+            <div class="card-icon">
+              <span class="material-symbols-outlined">
+                featured_seasonal_and_gifts
+              </span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <p class="text-th">REJECTION RATE</p>
+              <p id="rejectionRatePercent" class="text-xl">0%</p>
+            </div>
+            <div class="card-icon">
+              <span class="material-symbols-outlined"> trending_down </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search Bar/Filter -->
+      <section class="search">
+        <form class="search-form" action="/search" method="get">
+          <input
+            class="search-bar text-input"
+            type="search"
+            placeholder="Search by company or position..."
+          />
+          <select class="search-filter text-input">
+            <option value="">All Statuses</option>
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </form>
+        <!-- Job Application Table -->
+        <div id="jobApplicationsTable" class="job-applications-container"></div>
+        <!-- <table class="job-applications-table">
+          <thead>
+            <tr class="text-th">
+              <th scope="col">Company</th>
+              <th scope="col">Position</th>
+              <th scope="col">Status</th>
+              <th scope="col">Date Applied</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+        </table> -->
+      </section>
+
+      <!-- Add JobApplcation Modal -->
+      <dialog id="addJobApplicationModal" popover>
+        <div class="add-job-application">
+          <!-- Header -->
+          <h1 class="text-lg">Add New Application</h1>
+          <p class="text-sm">Track a new job application by filling out the details below.</p>
+
+          <!-- Form -->
+          <form>
+            <div class="grid">
+              <div class="form-group">
+                <label>Company Name</label>
+                <input class="text-input" type="text" placeholder="e.g. Google" required/>
+              </div>
+              <div class="form-group">
+                <label>Position Title</label>
+                <input class="text-input" type="text" placeholder="e.g. Software Engineer" required/>
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <select class="text-input">
+                  <option value="applied">Applied</option>
+                  <option value="interview">Interview</option>
+                  <option value="offer">Offer</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Application Date</label>
+                <input type="date" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Notes</label>
+              <textarea rows="5" cols="50"></textarea>
+            </div>
+            
+            <!-- Actions -->
+            <div class="actions">
+              <button class="btn" type="button" popovertarget="addJobApplicationModal" popovertargetaction="hide">Cancel</button>
+              <button class="btn btn-secondary" type="submit">Add Application</button>
+            </div>
+          </form>
+      </dialog>
+
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
