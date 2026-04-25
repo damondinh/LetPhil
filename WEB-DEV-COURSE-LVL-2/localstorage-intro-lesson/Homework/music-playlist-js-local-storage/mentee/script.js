@@ -171,8 +171,8 @@ function filterPlaylist() {
 // 🧪 Console log to confirm the playlist was shuffled
 function shufflePlaylist() {
   for (i = playlist.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1))
-    [playlist[i], playlist[j]] = [playlist[j], playlist[i]]
+    let j = Math.floor(Math.random() * (i + 1));
+    [playlist[i], playlist[j]] = [playlist[j], playlist[i]];
   }
 
   savePlaylist();
@@ -221,7 +221,7 @@ function loadTheme() {
 // - toggleModeBtn "click" → toggleDarkMode
 // 🧪 Console log to confirm all event listeners were attached
 form.addEventListener("submit", addSong);
-moodSelect.addEventListener("change", filterPlaylist);
+filterDropdown.addEventListener("change", filterPlaylist);
 shuffleButton.addEventListener("click", shufflePlaylist);
 toggleModeBtn.addEventListener("click", toggleDarkMode);
 console.log("All event listeners attached");
