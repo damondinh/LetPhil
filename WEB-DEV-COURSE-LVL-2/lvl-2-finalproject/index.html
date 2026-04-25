@@ -83,7 +83,7 @@
         <div class="card-container">
           <div class="card">
             <div class="card-title">
-              <p class="text-th">TOTAL APPLICATIONS</p>
+              <p class="text-ch">TOTAL APPLICATIONS</p>
               <p id="totalApplicationsCount" class="text-xl">0</p>
             </div>
             <div class="card-icon">
@@ -92,7 +92,7 @@
           </div>
           <div class="card">
             <div class="card-title">
-              <p class="text-th">ACTIVE INTERVIEWS</p>
+              <p class="text-ch">ACTIVE INTERVIEWS</p>
               <p id="activeInterviewsCount" class="text-xl">0</p>
             </div>
             <div class="card-icon">
@@ -101,7 +101,7 @@
           </div>
           <div class="card">
             <div class="card-title">
-              <p class="text-th">OFFERS RECEIVED</p>
+              <p class="text-ch">OFFERS RECEIVED</p>
               <p id="offersReceivedCount" class="text-xl">0</p>
             </div>
             <div class="card-icon">
@@ -112,7 +112,7 @@
           </div>
           <div class="card">
             <div class="card-title">
-              <p class="text-th">REJECTION RATE</p>
+              <p class="text-ch">REJECTION RATE</p>
               <p id="rejectionRatePercent" class="text-xl">0%</p>
             </div>
             <div class="card-icon">
@@ -124,34 +124,23 @@
 
       <!-- Search Bar/Filter -->
       <section class="search">
-        <form class="search-form" action="/search" method="get">
+        <form class="search-form">
           <input
+            id="searchInput"
             class="search-bar text-input"
-            type="search"
+            type="text"
             placeholder="Search by company or position..."
           />
-          <select class="search-filter text-input">
-            <option value="">All Statuses</option>
-            <option value="applied">Applied</option>
-            <option value="interview">Interview</option>
-            <option value="offer">Offer</option>
-            <option value="rejected">Rejected</option>
+          <select id="filterDropDown" class="search-filter text-input">
+            <option value="All">All Statuses</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
           </select>
         </form>
         <!-- Job Application Table -->
-        <div id="jobApplicationsTable" class="job-applications-container"></div>
-        <!-- <table class="job-applications-table">
-          <thead>
-            <tr class="text-th">
-              <th scope="col">Company</th>
-              <th scope="col">Position</th>
-              <th scope="col">Status</th>
-              <th scope="col">Date Applied</th>
-              <th scope="col">Notes</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-        </table> -->
+        <div id="jobsContainer" class="jobs-container"></div>
       </section>
 
       <!-- Add JobApplcation Modal -->
@@ -162,33 +151,33 @@
           <p class="text-sm">Track a new job application by filling out the details below.</p>
 
           <!-- Form -->
-          <form>
+          <form id="jobForm">
             <div class="grid">
               <div class="form-group">
                 <label>Company Name</label>
-                <input class="text-input" type="text" placeholder="e.g. Google" required/>
+                <input id="companyInput" class="text-input" type="text" placeholder="e.g. Google" required/>
               </div>
               <div class="form-group">
                 <label>Position Title</label>
-                <input class="text-input" type="text" placeholder="e.g. Software Engineer" required/>
+                <input id="positionInput" class="text-input" type="text" placeholder="e.g. Software Engineer" required/>
               </div>
               <div class="form-group">
                 <label>Status</label>
-                <select class="text-input">
-                  <option value="applied">Applied</option>
-                  <option value="interview">Interview</option>
-                  <option value="offer">Offer</option>
-                  <option value="rejected">Rejected</option>
+                <select id="statusSelect" class="text-input">
+                  <option value="Applied">Applied</option>
+                  <option value="Interview">Interview</option>
+                  <option value="Offer">Offer</option>
+                  <option value="Rejected">Rejected</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Application Date</label>
-                <input type="date" required/>
+                <input id="applicationDate" type="date" required/>
               </div>
             </div>
             <div class="form-group">
               <label>Notes</label>
-              <textarea rows="5" cols="50"></textarea>
+              <textarea id="notesTextArea" rows="5" cols="50"></textarea>
             </div>
             
             <!-- Actions -->
