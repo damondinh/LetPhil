@@ -8,7 +8,7 @@
     --clr-accent-light: lightblue;
     --clr-black: #000000;
     --clr-white: #ffffff;
-    --clr-grey-text: #808080;
+    --clr-grey-text: #6e6e6e;
 }
 
 * {
@@ -60,10 +60,11 @@ ul {
 }
 
 .logo {
-    display: inline-flex;
-    align-items: center;
+    /* display: inline-flex;
+    align-items: center; */
     font-size: 1.25rem;
     font-weight: 500;
+
 }
 
 /* Heading Section */
@@ -77,16 +78,13 @@ ul {
 
 /* Dashboard Section */
 .dashboard .card-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
     margin-bottom: 1.5rem;
 }
 .dashboard .card-container .card{
     display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--clr-primary-dark);
@@ -100,7 +98,8 @@ ul {
     padding: 10px;
     background-color: var(--clr-primary-dark);
     border-radius: 8px;
-    color: var(--clr-grey-text)
+    color: var(--clr-grey-text);
+    margin: 0 5px 0 20px;
 }
 
 /* Search Section */
@@ -129,17 +128,26 @@ ul {
     min-width: 100%;
     text-align: left;
 }
-.search .jobs-container .table {
+.search .jobs-container .row {
     display: grid;
-    grid-template-columns: 0.8fr 0.8fr 0.4fr 0.5fr 1.5fr 0.25fr;
+    /* grid-template-columns: 0.7fr 0.7fr 0.4fr 0.4fr 1fr 90px; */
+    grid-template-columns: 0.7fr 0.7fr 0.4fr 0.3fr 1fr 90px;
 }
-.row {
+
+.search .jobs-container .row-content {
     border-top: 1px solid var(--clr-primary-darker);
-    padding: 20px 15px;
+    padding: 15px 15px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+
+
+.row:hover {
+    background: var(--clr-primary-dark);
 }
 
 /* Add Job Application Modal */
-.add-job-application .grid {
+.add-job-application .form-container {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 10px;
@@ -164,9 +172,9 @@ ul {
 
 /* Utility Classes */
 .container {
-    max-width: 1800px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 1rem 10%;
+    padding: 1rem 5%;
 }
 
 input, select, textarea {
@@ -175,7 +183,6 @@ input, select, textarea {
     background-color: var(--clr-white);
 }
 
-
 /* Dialog Classes */
 dialog {
   margin: auto;
@@ -183,10 +190,35 @@ dialog {
   border-radius: 8px;
   padding: 20px;
 }
-
 ::backdrop {
     background-color: var(--clr-black);
     opacity: 0.75;
+}
+
+/* Badge Classes */
+.badge {
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: 450;
+    border-radius: 8px;
+    padding: 2px 10px;
+    margin-right: auto;
+}
+.badge-applied {
+    background: var(--clr-primary-dark);
+    color: var(--clr-grey-text);
+}
+.badge-interview {
+    background: rgb(255, 237, 213);
+    color: rgb(234, 88, 12);
+}
+.badge-offer {
+    background: rgb(220, 252, 231);
+    color: rgb(22, 163, 74);
+}
+.badge-rejected {
+    background: rgb(254, 226, 226);
+    color:rgb(220, 38, 38);
 }
 
 /* Button Classes*/
@@ -197,12 +229,13 @@ dialog {
     border-radius: 8px;
     padding: 0.75rem 0.75rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 .btn-primary {
     background-color: var(--clr-white);
 }
 .btn-primary:hover {
-    background: var(--clr-primary);
+    background: var(--clr-primary-dark);
 }
 .btn-secondary {
     background-color: var(--clr-accent);
@@ -213,6 +246,21 @@ dialog {
     background: var(--clr-accent-light);
 }
 
+.btn-row {
+    display: inline-block;
+    font-size: 1rem;
+    border: 0px solid var(--clr-white);
+    background: none;
+    border-radius: 8px;
+    padding: 10px 10px;
+    margin: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-row:hover {
+    background: var(--clr-primary-darker);
+}
+
 /* Text Classes */
 textarea, input, select {
     font-family: 'Roboto', sans-serif;
@@ -221,22 +269,18 @@ textarea, input, select {
     font-weight: 400;
     padding: 0.5rem 1rem;
 }
-
+.text-grey {
+    color: var(--clr-grey-text);
+}
 .text-th {
     font-size:1rem;
-    font-weight: 500px;
+    font-weight: 450;
     color: var(--clr-grey-text);
     padding: 10px 15px;
 }
-/* .text-input {
-    font-size: 1rem;
-    line-height: 1.4;
-    font-weight: 400;
-    padding: 0.5rem 1rem;
-} */
-.text-ch { 
+.text-dh { 
     font-size:1rem;
-    font-weight: 500px;
+    font-weight: 500;
     color: var(--clr-grey-text);
 }
 .text-xl {
@@ -257,5 +301,94 @@ textarea, input, select {
     color: var(--clr-grey-text);
 }
 .text-sm {
-    font-size:1rem;
+    font-size:0.97rem;
+}
+
+
+
+/* Extra large devices ( Large laptops/desktops, 1200 and down)*/
+@media (max-width: 1200px) {
+    .dashboard .card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Large devices (laptops/desktops, 992 and down) */
+@media (max-width: 900px) {
+    .search .jobs-container {
+        border: none;
+        border-radius: 8px; 
+        min-width: 100%;
+        text-align: left;
+    }
+
+    .search .jobs-container #tableHeader{
+        display: none;
+    }
+
+    /* .search .jobs-container .row {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    } */
+
+    .search .jobs-container .row {
+        display: grid;
+        grid-template-columns: auto 1fr 90px;
+        grid-template-rows: repeat(3, 1fr);
+    }
+    
+    .search .jobs-container .row-content {
+        border: 1px solid var(--clr-primary-dark);
+        border-radius: 8px;
+        background-color: var(--clr-primary);
+        margin-bottom: 1rem;
+        box-shadow: 1px 2px 1px var(--clr-primary);
+    }
+    #rowCompany{
+        grid-column: 1 / 3;
+        grid-row: 1;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    #rowPosition {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        font-size:1.2rem;
+        line-height: 1.4;
+        font-weight: 390;
+        margin: 5px 0 5px;
+    }
+    #rowBadge {
+        grid-column: 1;
+        grid-row: 3;
+        margin-right: 10px;
+
+    }
+    #rowDate {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    #rowNotes {
+        grid-column: 1 / 3;
+        grid-row: 4;
+        color: var(--clr-grey-text);
+        
+    }
+    #rowActions {
+        grid-column: 3;
+        grid-row: 1;
+    }
+}
+
+/* Medium devices (portrait tablets, 768px and down)*/
+@media (max-width: 768px) {
+    .heading {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .dashboard .card-container {
+        grid-template-columns: 1fr;
+    }
 }

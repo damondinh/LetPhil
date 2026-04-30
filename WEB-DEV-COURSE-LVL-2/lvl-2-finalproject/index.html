@@ -66,7 +66,6 @@
         <h1 class="text-lg">Job Applications</h1>
         <p class="text-md">Track and manage your job search progress</p>
       </div>
-      <div class="add-button">
         <button
           id="addJobApplicationBtn"
           class="btn btn-secondary"
@@ -74,7 +73,6 @@
         >
           + Add Application
         </button>
-      </div>
     </section>
 
     <main class="container">
@@ -83,7 +81,7 @@
         <div class="card-container">
           <div class="card">
             <div class="card-title">
-              <p class="text-ch">TOTAL APPLICATIONS</p>
+              <p class="text-dh">TOTAL APPLICATIONS</p>
               <p id="totalApplicationsCount" class="text-xl">0</p>
             </div>
             <div class="card-icon">
@@ -92,7 +90,7 @@
           </div>
           <div class="card">
             <div class="card-title">
-              <p class="text-ch">ACTIVE INTERVIEWS</p>
+              <p class="text-dh">ACTIVE INTERVIEWS</p>
               <p id="activeInterviewsCount" class="text-xl">0</p>
             </div>
             <div class="card-icon">
@@ -101,7 +99,7 @@
           </div>
           <div class="card">
             <div class="card-title">
-              <p class="text-ch">OFFERS RECEIVED</p>
+              <p class="text-dh">OFFERS RECEIVED</p>
               <p id="offersReceivedCount" class="text-xl">0</p>
             </div>
             <div class="card-icon">
@@ -112,8 +110,8 @@
           </div>
           <div class="card">
             <div class="card-title">
-              <p class="text-ch">REJECTION RATE</p>
-              <p id="rejectionRatePercent" class="text-xl">0%</p>
+              <p class="text-dh">REJECTION RATE</p>
+              <p id="rejectionRatePercentage" class="text-xl">0%</p>
             </div>
             <div class="card-icon">
               <span class="material-symbols-outlined"> trending_down </span>
@@ -148,11 +146,11 @@
         <div class="add-job-application">
           <!-- Header -->
           <h1 class="text-lg">Add New Application</h1>
-          <p class="text-sm">Track a new job application by filling out the details below.</p>
+          <p class="text-sm text-grey">Track a new job application by filling out the details below.</p>
 
           <!-- Form -->
           <form id="jobForm">
-            <div class="grid">
+            <div class="form-container">
               <div class="form-group">
                 <label>Company Name</label>
                 <input id="companyInput" class="text-input" type="text" placeholder="e.g. Google" required/>

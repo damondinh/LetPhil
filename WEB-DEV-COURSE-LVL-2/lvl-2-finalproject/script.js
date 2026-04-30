@@ -13,6 +13,11 @@ const notesTextArea = document.getElementById('notesTextArea');
 const jobForm = document.getElementById('jobForm');
 const filterDropdown = document.getElementById('filterDropDown');
 const searchInput = document.getElementById('searchInput');
+const totalApplicationsCount = document.getElementById('totalApplicationsCount');
+const activeInterviewsCount = document.getElementById('activeInterviewsCount');
+const offersReceivedCount = document.getElementById('offersReceivedCount');
+const rejectionRatePercentage = document.getElementById('rejectionRatePercentage');
+const jobApplicationModal = document.getElementById();
 
 // loadJobs() -> load the saved job applications from localStorage
 function loadJobs() {
@@ -42,7 +47,8 @@ function renderJobs(jobsToRender) {
 
     // 2. Render job table headings
     let tableHeader = document.createElement("div");
-    tableHeader.classList.add("table");
+    tableHeader.id = 'tableHeader';
+    tableHeader.classList.add("row");
     tableHeader.classList.add("text-th");
     tableHeader.innerHTML=`
                         <div>Company</div>
@@ -50,21 +56,24 @@ function renderJobs(jobsToRender) {
                         <div>Status</div>
                         <div>Date Applied</div>
                         <div>Notes</div>
-                        <div>Actions</div>`;
+                        <div style="text-align: center;">Actions</div>`;
     jobsContainer.appendChild(tableHeader);
 
     // 3. Render each job application as a row
     jobsToRender.forEach((job, index) => {
         let jobRow = document.createElement("div");
-        jobRow.classList.add("table");
         jobRow.classList.add("row");
+        jobRow.classList.add("row-content");
         jobRow.innerHTML=`
-                        <div>${job.company}</div>
-                        <div>${job.position}</div>
-                        <div>${job.status}</div>
-                        <div>${job.date}</div>
-                        <div>${job.notes}</div>
-                        <button class="btn-delete" data-index="${index}">🗑️</button>
+                        <div id="rowCompany" class="text-sm">${job.company}</div>
+                        <div id="rowPosition" class="text-sm">${job.position}</div>
+                        <div id="rowBadge" class="badge badge-${job.status.toLowerCase()}">${job.status}</div>
+                        <div id="rowDate" class="text-sm text-grey">${formatDate(job.date)}</div>
+                        <div id="rowNotes" class"text-sm text-grey">${job.notes}</div>
+                        <div id="rowActions">
+                            <button class="btn-edit btn-row" data-index="${index}">✏️</button>
+                            <button class="btn-delete btn-row" data-index="${index}">🗑️</button>
+                        </div>
                         `;
         jobsContainer.appendChild(jobRow);
     });
@@ -81,16 +90,55 @@ function renderJobs(jobsToRender) {
     });
 
     // TODO: 3.3 add edit functionality to each edit button
-    /* <button class="btn-edit" data-index="${index}">✏️</button>
     const editBtns = document.querySelectorAll(".btn-edit");
     editBtns.forEach((btn) => {
-        btn.addEventListener("click", function ())
-    }); */
+        btn.addEventListener("click", function () {
+
+        });
+    }); 
+
+    // Update dashboard
+    renderTotalApplicationsCount();
+    renderActiveInterviewsCount();
+    renderOffersReceivedCount();
+    renderRejectionRatePercentageCount();
+}
+// renderTotalApplicationsCount()
+function renderTotalApplicationsCount() {
+    totalApplicationsCount.textContent = jobs.length;
+}
+
+// renderActiveInterviewsCount()
+function renderActiveInterviewsCount() {
+    const activeInterviews = jobs.filter((job) => job.status === "Interview");
+    activeInterviewsCount.textContent = activeInterviews.length;
+}
+
+// renderOffersReceivedCount()
+function renderOffersReceivedCount() {
+    const offersReceived = jobs.filter((job) => job.status === "Offer");
+    offersReceivedCount.textContent = offersReceived.length;
+}
+
+// renderrejectionRatePercentageCount()
+function renderRejectionRatePercentageCount() {
+    const rejectionCount = jobs.filter((job) => job.status === "Rejected");
+    rejectionRatePercentage.textContent = Math.round((rejectionCount.length/jobs.length)*100)+ "%";
+}
+
+// formatDate(date) -> formats date string to "8 Apr 2026"
+function formatDate(date) {
+  return new Date(date).toLocaleDateString('en-AU', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  });
 }
 
 // addJob(e) -> Adds new job
 function addJob(e) {
    e.preventDefault(); // to stop the form from refreshing
+
    const newJob = {
     company: companyInput.value.trim(),
     position: positionInput.value.trim(),
