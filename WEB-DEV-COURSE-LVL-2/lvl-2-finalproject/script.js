@@ -17,7 +17,7 @@ const totalApplicationsCount = document.getElementById('totalApplicationsCount')
 const activeInterviewsCount = document.getElementById('activeInterviewsCount');
 const offersReceivedCount = document.getElementById('offersReceivedCount');
 const rejectionRatePercentage = document.getElementById('rejectionRatePercentage');
-const jobApplicationModal = document.getElementById();
+// const jobApplicationModal = document.getElementById();
 
 // loadJobs() -> load the saved job applications from localStorage
 function loadJobs() {
@@ -90,12 +90,12 @@ function renderJobs(jobsToRender) {
     });
 
     // TODO: 3.3 add edit functionality to each edit button
-    const editBtns = document.querySelectorAll(".btn-edit");
-    editBtns.forEach((btn) => {
-        btn.addEventListener("click", function () {
+    // const editBtns = document.querySelectorAll(".btn-edit");
+    // editBtns.forEach((btn) => {
+    //     btn.addEventListener("click", function () {
 
-        });
-    }); 
+    //     });
+    // }); 
 
     // Update dashboard
     renderTotalApplicationsCount();
