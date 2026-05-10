@@ -25,7 +25,7 @@ const submitModalBtn = document.getElementById('submitModalBtn');
 // loadJobs() -> load the saved job applications from localStorage
 function loadJobs() {
     // 1. Get saved data from local storage
-    const savedJobs = localStorage.getItem("savedJobs"); 
+    const savedJobs = localStorage.getItem("savedJobs");
 
     // 2. Validate data exists
     if (savedJobs) {
@@ -39,7 +39,7 @@ function loadJobs() {
 // saveJobs() -> save the job applications into localStorage
 function saveJobs() {
     // 1. Convert data to JSON and save into local storage
-    localStorage.setItem("savedJobs",JSON.stringify(jobs)); 
+    localStorage.setItem("savedJobs",JSON.stringify(jobs));
     console.log("Job Applications saved to local storage");
 }
 
@@ -99,7 +99,7 @@ function renderJobs(jobsToRender) {
             const index = this.getAttribute("data-index");
             openEditModal(index);
         });
-    }); 
+    });
 
     // Update dashboard
     renderTotalApplicationsCount();
@@ -135,13 +135,13 @@ function submit(e) {
     } else if (mode === 'edit') {
         jobs[index] = newJob;
     }
-    
+
     // Save and render jobs, reset form and close modal
     saveJobs();
     renderJobs(jobs);
     jobForm.reset();
     closeModal();
-}    
+}
 
 
 // filterJobsByStatus() -> filters jobs by status
@@ -188,20 +188,25 @@ function renderOffersReceivedCount() {
 // renderrejectionRatePercentageCount()
 function renderRejectionRatePercentageCount() {
     const rejectionCount = jobs.filter((job) => job.status === "Rejected");
-    rejectionRatePercentage.textContent = Math.round((rejectionCount.length/jobs.length)*100)+ "%";
+    if (jobs.length > 0) {
+        rejectionRatePercentage.textContent = Math.round((rejectionCount.length/jobs.length)*100)+ "%";
+    } else {
+        rejectionRatePercentage.textContent = "0%";
+    }
+
 }
 // closeModal() -> Closes modal
 function closeModal() {
     jobApplicationModal.close();
 }
 
-// openAddModal(mode) -> Configures the modal to add 
+// openAddModal(mode) -> Configures the modal to add
 function openAddModal() {
     const title = document.getElementById('modalTitle');
     const description = document.getElementById('modalDescription');
     const form = document.getElementById('jobForm');
 
-    // Update modal 
+    // Update modal
     title.innerText = "Add New Application";
     description.innerText = "Track a new job application by filling out the details below.";
     form.dataset.mode = "add";
@@ -216,7 +221,7 @@ function openEditModal(index) {
     const description = document.getElementById('modalDescription');
     const form = document.getElementById('jobForm');
 
-    // Update modal 
+    // Update modal
     title.innerText = "Edit Application";
     description.innerText = "Update the details of your job application.";
     form.dataset.mode = "edit";
