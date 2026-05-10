@@ -49,22 +49,14 @@ ul {
     align-items: center;
 }
 
-.navbar ul li a {
+.navbar ul li {
     display: block;
-    padding: 0px 15px;
+    padding: 0px 5px;
     transition: 0.5s;
 }
 
 .navbar ul li a:hover {
     color: var(--clr-primary-dark);
-}
-
-.logo {
-    /* display: inline-flex;
-    align-items: center; */
-    font-size: 1.25rem;
-    font-weight: 500;
-
 }
 
 /* Heading Section */
@@ -130,7 +122,6 @@ ul {
 }
 .search .jobs-container .row {
     display: grid;
-    /* grid-template-columns: 0.7fr 0.7fr 0.4fr 0.4fr 1fr 90px; */
     grid-template-columns: 0.7fr 0.7fr 0.4fr 0.3fr 1fr 90px;
 }
 
@@ -147,23 +138,23 @@ ul {
 }
 
 /* Add Job Application Modal */
-.add-job-application .form-container {
+.job-application .form-container {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 10px;
     margin: 10px 0;
     min-width: 650px;
 }
-.add-job-application .form-group {
+.job-application .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
-.add-job-application textarea {
+.job-application textarea {
     resize: none;
     height: 120px;
 }
-.add-job-application .actions {
+.job-application .actions {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
@@ -181,6 +172,10 @@ input, select, textarea {
     border: 1px solid var(--clr-primary-darker);
     border-radius: 8px;
     background-color: var(--clr-white);
+}
+
+.material-symbols-outlined {
+    vertical-align: middle;
 }
 
 /* Dialog Classes */
@@ -269,9 +264,17 @@ textarea, input, select {
     font-weight: 400;
     padding: 0.5rem 1rem;
 }
+
 .text-grey {
     color: var(--clr-grey-text);
 }
+
+.text-logo {
+    font-size: 1.25rem;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
 .text-th {
     font-size:1rem;
     font-weight: 450;
@@ -305,7 +308,7 @@ textarea, input, select {
 }
 
 
-
+/* Responsive Media Queries */
 /* Extra large devices ( Large laptops/desktops, 1200 and down)*/
 @media (max-width: 1200px) {
     .dashboard .card-container {
@@ -325,12 +328,6 @@ textarea, input, select {
     .search .jobs-container #tableHeader{
         display: none;
     }
-
-    /* .search .jobs-container .row {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    } */
 
     .search .jobs-container .row {
         display: grid;
@@ -383,6 +380,9 @@ textarea, input, select {
 
 /* Medium devices (portrait tablets, 768px and down)*/
 @media (max-width: 768px) {
+    .navbar .btn {
+        font-size: 0;
+    }
     .heading {
         display: flex;
         flex-direction: column;
@@ -391,4 +391,5 @@ textarea, input, select {
     .dashboard .card-container {
         grid-template-columns: 1fr;
     }
+    
 }

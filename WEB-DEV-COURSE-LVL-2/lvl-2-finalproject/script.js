@@ -17,7 +17,10 @@ const totalApplicationsCount = document.getElementById('totalApplicationsCount')
 const activeInterviewsCount = document.getElementById('activeInterviewsCount');
 const offersReceivedCount = document.getElementById('offersReceivedCount');
 const rejectionRatePercentage = document.getElementById('rejectionRatePercentage');
-// const jobApplicationModal = document.getElementById();
+const jobApplicationModal = document.getElementById('jobApplicationModal');
+const addJobApplicationBtn = document.getElementById('addJobApplicationBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const submitModalBtn = document.getElementById('submitModalBtn');
 
 // loadJobs() -> load the saved job applications from localStorage
 function loadJobs() {
@@ -90,40 +93,19 @@ function renderJobs(jobsToRender) {
     });
 
     // TODO: 3.3 add edit functionality to each edit button
-    // const editBtns = document.querySelectorAll(".btn-edit");
-    // editBtns.forEach((btn) => {
-    //     btn.addEventListener("click", function () {
-
-    //     });
-    // }); 
+    const editBtns = document.querySelectorAll(".btn-edit");
+    editBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const index = this.getAttribute("data-index");
+            openEditModal(index);
+        });
+    }); 
 
     // Update dashboard
     renderTotalApplicationsCount();
     renderActiveInterviewsCount();
     renderOffersReceivedCount();
     renderRejectionRatePercentageCount();
-}
-// renderTotalApplicationsCount()
-function renderTotalApplicationsCount() {
-    totalApplicationsCount.textContent = jobs.length;
-}
-
-// renderActiveInterviewsCount()
-function renderActiveInterviewsCount() {
-    const activeInterviews = jobs.filter((job) => job.status === "Interview");
-    activeInterviewsCount.textContent = activeInterviews.length;
-}
-
-// renderOffersReceivedCount()
-function renderOffersReceivedCount() {
-    const offersReceived = jobs.filter((job) => job.status === "Offer");
-    offersReceivedCount.textContent = offersReceived.length;
-}
-
-// renderrejectionRatePercentageCount()
-function renderRejectionRatePercentageCount() {
-    const rejectionCount = jobs.filter((job) => job.status === "Rejected");
-    rejectionRatePercentage.textContent = Math.round((rejectionCount.length/jobs.length)*100)+ "%";
 }
 
 // formatDate(date) -> formats date string to "8 Apr 2026"
@@ -135,23 +117,32 @@ function formatDate(date) {
   });
 }
 
-// addJob(e) -> Adds new job
-function addJob(e) {
-   e.preventDefault(); // to stop the form from refreshing
+// submit(e) -> Adds/Edits job
+function submit(e) {
+    e.preventDefault(); // to stop the form from refreshing
+    const mode = jobForm.dataset.mode;
+    const index = jobForm.dataset.id;
+    const newJob = {
+        company: companyInput.value.trim(),
+        position: positionInput.value.trim(),
+        status: statusSelect.value.trim(),
+        date: applicationDate.value,
+        notes: notesTextArea.value.trim()};
 
-   const newJob = {
-    company: companyInput.value.trim(),
-    position: positionInput.value.trim(),
-    status: statusSelect.value.trim(),
-    date: applicationDate.value,
-    notes: notesTextArea.value.trim()
-   };
-   jobs.push(newJob);
-   saveJobs();
-   renderJobs(jobs);
-   jobForm.reset();
-   console.log("New job added");
+    // Add new job application to array or update existing job application based on mode
+    if (mode === 'add') {
+        jobs.push(newJob);
+    } else if (mode === 'edit') {
+        jobs[index] = newJob;
+    }
+    
+    // Save and render jobs, reset form and close modal
+    saveJobs();
+    renderJobs(jobs);
+    jobForm.reset();
+    closeModal();
 }    
+
 
 // filterJobsByStatus() -> filters jobs by status
 function filterJobsByStatus() {
@@ -177,8 +168,74 @@ function filterJobsByCompanyOrPosition() {
     }
 }
 
+// renderTotalApplicationsCount()
+function renderTotalApplicationsCount() {
+    totalApplicationsCount.textContent = jobs.length;
+}
+
+// renderActiveInterviewsCount()
+function renderActiveInterviewsCount() {
+    const activeInterviews = jobs.filter((job) => job.status === "Interview");
+    activeInterviewsCount.textContent = activeInterviews.length;
+}
+
+// renderOffersReceivedCount()
+function renderOffersReceivedCount() {
+    const offersReceived = jobs.filter((job) => job.status === "Offer");
+    offersReceivedCount.textContent = offersReceived.length;
+}
+
+// renderrejectionRatePercentageCount()
+function renderRejectionRatePercentageCount() {
+    const rejectionCount = jobs.filter((job) => job.status === "Rejected");
+    rejectionRatePercentage.textContent = Math.round((rejectionCount.length/jobs.length)*100)+ "%";
+}
+// closeModal() -> Closes modal
+function closeModal() {
+    jobApplicationModal.close();
+}
+
+// openAddModal(mode) -> Configures the modal to add 
+function openAddModal() {
+    const title = document.getElementById('modalTitle');
+    const description = document.getElementById('modalDescription');
+    const form = document.getElementById('jobForm');
+
+    // Update modal 
+    title.innerText = "Add New Application";
+    description.innerText = "Track a new job application by filling out the details below.";
+    form.dataset.mode = "add";
+    form.reset(); // Clear previous inputs
+
+    jobApplicationModal.showModal();
+}
+
+// openEditModal(mode) -> Configures the modal to edit
+function openEditModal(index) {
+    const title = document.getElementById('modalTitle');
+    const description = document.getElementById('modalDescription');
+    const form = document.getElementById('jobForm');
+
+    // Update modal 
+    title.innerText = "Edit Application";
+    description.innerText = "Update the details of your job application.";
+    form.dataset.mode = "edit";
+    form.dataset.id = index;
+
+    // Add current jobs data into inputs to modify
+    document.getElementById('companyInput').value = jobs[index].company;
+    document.getElementById('positionInput').value = jobs[index].position;
+    document.getElementById('statusSelect').value = jobs[index].status;
+    document.getElementById('applicationDate').value = jobs[index].date;
+    document.getElementById('notesTextArea').value = jobs[index].notes;
+
+    jobApplicationModal.showModal();
+}
+
 // Add event listeners
-jobForm.addEventListener("submit", addJob);
+closeModalBtn.addEventListener("click", closeModal);
+submitModalBtn.addEventListener("click", submit);
+addJobApplicationBtn.addEventListener("click", openAddModal);
 filterDropdown.addEventListener("change", filterJobsByStatus);
 searchInput.addEventListener("input",filterJobsByCompanyOrPosition);
 

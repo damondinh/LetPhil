@@ -1,0 +1,100 @@
+.contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+#emailForm {
+    border: 1px solid var(--clr-primary-dark);
+    border-radius: 8px;
+    background-color: var(--clr-primary);
+    padding: 20px 20px 10px 20px;
+}
+
+.contact-container .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 4;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.contact-container .form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.contact-container .form-container #subjectDiv {
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+
+.contact-container .form-container #messageDiv {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    resize: none;
+}
+
+/* Info container */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border: 1px solid var(--clr-primary-dark);
+    border-radius: 8px;
+    background-color: var(--clr-primary);
+    padding: 20px;
+}
+
+.info-icon {
+    grid-column: 1;
+    border-radius: 8px;
+    background-color: var(--clr-primary-dark);
+    padding: 10px;
+    margin: 0 20px auto auto;
+}
+
+.info-content {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Text Fonts */
+.info-text-header {
+    font-weight: 500;
+}
+
+.info-text-bold {
+    font-weight: 450;
+}
+
+/* Responsive Media Queries */
+/* Large devices (laptops/desktops, 992 and down) */
+@media (max-width: 900px) {
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 10px 0;
+    }
+
+}
+
+/* Medium devices (portrait tablets, 768px and down)*/
+@media (max-width: 768px) {
+    .contact-container .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0;
+    }
+}

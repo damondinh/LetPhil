@@ -20,10 +20,10 @@
     <header>
       <!-- Navigation Bar -->
       <navbar class="navbar container">
-        <div class="logo">
+        <div>
           <a href="index.html">
-            <span class="material-symbols-outlined"> trip </span>
-            <span>JobTrack</span>
+            <span class="material-symbols-outlined">trip</span>
+            <span class="text-logo">JobTrack</span>
           </a>
         </div>
         <div class="main-menu">
@@ -31,13 +31,17 @@
             <li>
               <a href="index.html">
                 <button class="btn btn-primary">
+                  <span class="material-symbols-outlined">trip</span>
                   <span>Dashboard</span>
                 </button>
               </a>
             </li>
             <li>
-              <a href="#">
-                <button class="btn btn-primary">Contact</button>
+              <a href="contact.html">
+                <button class="btn btn-primary">
+                  <span class="material-symbols-outlined">mail</span>
+                  <span>Contact</span>
+                </button>
               </a>
             </li>
             <li>
@@ -66,11 +70,7 @@
         <h1 class="text-lg">Job Applications</h1>
         <p class="text-md">Track and manage your job search progress</p>
       </div>
-        <button
-          id="addJobApplicationBtn"
-          class="btn btn-secondary"
-          popovertarget="addJobApplicationModal"
-        >
+        <button id="addJobApplicationBtn" class="btn btn-secondary">
           + Add Application
         </button>
     </section>
@@ -141,12 +141,12 @@
         <div id="jobsContainer" class="jobs-container"></div>
       </section>
 
-      <!-- Add JobApplcation Modal -->
-      <dialog id="addJobApplicationModal" popover>
-        <div class="add-job-application">
+      <!-- JobApplcation Modal -->
+      <dialog id="jobApplicationModal" popover>
+        <div class="job-application">
           <!-- Header -->
-          <h1 class="text-lg">Add New Application</h1>
-          <p class="text-sm text-grey">Track a new job application by filling out the details below.</p>
+          <h1 id="modalTitle" class="text-lg">Add New Application</h1>
+          <p id="modalDescription" class="text-sm text-grey">Track a new job application by filling out the details below.</p>
 
           <!-- Form -->
           <form id="jobForm">
@@ -180,8 +180,8 @@
             
             <!-- Actions -->
             <div class="actions">
-              <button class="btn" type="button" popovertarget="addJobApplicationModal" popovertargetaction="hide">Cancel</button>
-              <button class="btn btn-secondary" type="submit">Add Application</button>
+              <button id="closeModalBtn" class="btn">Cancel</button>
+              <button id="submitModalBtn" class="btn btn-secondary" type="submit">Save</button>
             </div>
           </form>
       </dialog>

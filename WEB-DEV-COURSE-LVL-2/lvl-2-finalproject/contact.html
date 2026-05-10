@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Bar -->
+      <navbar class="navbar container">
+        <div>
+          <a href="index.html">
+            <span class="material-symbols-outlined"> trip </span>
+            <span class="text-logo">JobTrack</span>
+          </a>
+        </div>
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">
+                <button class="btn btn-primary">
+                  <span class="material-symbols-outlined">trip</span>
+                  <span>Dashboard</span>
+                </button>
+              </a>
+            </li>
+            <li>
+              <a href="contact.html">
+                <button class="btn btn-primary">
+                  <span class="material-symbols-outlined">mail</span>
+                  <span>Contact</span>
+                </button>
+              </a>
+            </li>
+            <li>
+              <button class="btn btn-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000000"
+                >
+                  <path
+                    d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm98 382q-70-70-70-170t70-170q70-70 170-70t170 70q70 70 70 170t-70 170q-70 70-170 70t-170-70Zm283.5-56.5Q640-413 640-480t-46.5-113.5Q547-640 480-640t-113.5 46.5Q320-547 320-480t46.5 113.5Q413-320 480-320t113.5-46.5ZM480-480Z"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </navbar>
+    </header>
+
+    <!-- Heading -->
+    <section class="heading container">
+      <div class="title">
+        <a href="index.html">
+          <button class="btn btn-primary">
+            <span
+              class="material-symbols-outlined"
+              style="vertical-align: middle"
+            >
+              arrow_back
+            </span>
+            <span>Back to Dashboard</span>
+          </button>
+        </a>
+        <h1 class="text-lg">Contact Us</h1>
+        <p class="text-md">
+          Have questions about your job search? We're here to help.
+        </p>
+      </div>
+    </section>
+
+    <main class="container">
+      <!-- Left side: Form -->
+      <div class="contact-container">
+        <!-- Email Form -->
+        <form id="emailForm">
+          <!-- Header -->
+          <div>
+            <h1 id="modalTitle" class="text-lg">Send a Message</h1>
+            <p id="modalDescription" class="text-sm text-grey">
+              Fill out the form bellow and we'll get back to you as soon as
+              possible.
+            </p>
+          </div>
+
+          <!-- Form Inputs -->
+          <div class="form-container">
+            <div class="form-group">
+              <label>Name</label>
+              <input
+                id="nameInput"
+                class="text-input"
+                type="text"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                id="emailInput"
+                class="text-input"
+                type="text"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div id="subjectDiv" class="form-group">
+              <label>Subject</label>
+              <input
+                id="subjectInput"
+                class="text-input"
+                type="text"
+                placeholder="What is this about?"
+                required
+              />
+            </div>
+
+            <div id="messageDiv" class="form-group">
+              <label>Message</label>
+              <textarea id="messageTextArea" rows="5" cols="50"></textarea>
+            </div>
+
+            <div class="actions">
+              <button
+                id="sendMessageBtn"
+                class="btn btn-secondary"
+                type="submit"
+              >
+                Send Message
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Right side: Info cards -->
+        <div class="info-container">
+          <!-- Email Support Info Card -->
+          <div class="info-card">
+            <div class="info-icon">
+              <span class="material-symbols-outlined">mail</span>
+            </div>
+            <div class="info-content">
+              <p class="info-text-header">Email Support</p>
+              <p class="text-sm text-grey">For general inquries and support</p>
+              <p class="text-sm info-text-bold">support@jobtrack.app</p>
+            </div>
+          </div>
+
+          <!-- Response Time Info Card -->
+          <div class="info-card">
+            <div class="info-icon">
+              <span class="material-symbols-outlined">chat_bubble</span>
+            </div>
+            <div class="info-content">
+              <p class="info-text-header">Response Time</p>
+              <p class="text-sm text-grey">We typically respond within</p>
+              <p class="text-sm info-text-bold">24-48 hour</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
