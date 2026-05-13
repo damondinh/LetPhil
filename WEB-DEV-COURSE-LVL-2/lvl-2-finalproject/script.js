@@ -2,8 +2,9 @@
 
 // Declare an empty array to store job application objects
 let jobs = [];
+const DARK_MODE_KEY = "jobTrackDarkMode";
 
-// References to all DOM elements
+// References to DOM elements
 const jobsContainer = document.getElementById('jobsContainer');
 const companyInput = document.getElementById('companyInput');
 const positionInput = document.getElementById('positionInput');
@@ -21,6 +22,8 @@ const jobApplicationModal = document.getElementById('jobApplicationModal');
 const addJobApplicationBtn = document.getElementById('addJobApplicationBtn');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const submitModalBtn = document.getElementById('submitModalBtn');
+const toggleModeBtn = document.getElementById('toggleModeBtn');
+const toggleModeIcon = document.getElementById('toggleModeIcon');
 
 // loadJobs() -> load the saved job applications from localStorage
 function loadJobs() {
@@ -39,7 +42,7 @@ function loadJobs() {
 // saveJobs() -> save the job applications into localStorage
 function saveJobs() {
     // 1. Convert data to JSON and save into local storage
-    localStorage.setItem("savedJobs",JSON.stringify(jobs));
+    localStorage.setItem("savedJobs", JSON.stringify(jobs));
     console.log("Job Applications saved to local storage");
 }
 
@@ -53,7 +56,7 @@ function renderJobs(jobsToRender) {
     tableHeader.id = 'tableHeader';
     tableHeader.classList.add("row");
     tableHeader.classList.add("text-th");
-    tableHeader.innerHTML=`
+    tableHeader.innerHTML = `
                         <div>Company</div>
                         <div>Position</div>
                         <div>Status</div>
@@ -67,7 +70,7 @@ function renderJobs(jobsToRender) {
         let jobRow = document.createElement("div");
         jobRow.classList.add("row");
         jobRow.classList.add("row-content");
-        jobRow.innerHTML=`
+        jobRow.innerHTML = `
                         <div id="rowCompany" class="text-sm">${job.company}</div>
                         <div id="rowPosition" class="text-sm">${job.position}</div>
                         <div id="rowBadge" class="badge badge-${job.status.toLowerCase()}">${job.status}</div>
@@ -110,11 +113,11 @@ function renderJobs(jobsToRender) {
 
 // formatDate(date) -> formats date string to "8 Apr 2026"
 function formatDate(date) {
-  return new Date(date).toLocaleDateString('en-AU', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric'
-  });
+    return new Date(date).toLocaleDateString('en-AU', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+    });
 }
 
 // submit(e) -> Adds/Edits job
@@ -127,7 +130,8 @@ function submit(e) {
         position: positionInput.value.trim(),
         status: statusSelect.value.trim(),
         date: applicationDate.value,
-        notes: notesTextArea.value.trim()};
+        notes: notesTextArea.value.trim()
+    };
 
     // Add new job application to array or update existing job application based on mode
     if (mode === 'add') {
@@ -189,7 +193,7 @@ function renderOffersReceivedCount() {
 function renderRejectionRatePercentageCount() {
     const rejectionCount = jobs.filter((job) => job.status === "Rejected");
     if (jobs.length > 0) {
-        rejectionRatePercentage.textContent = Math.round((rejectionCount.length/jobs.length)*100)+ "%";
+        rejectionRatePercentage.textContent = Math.round((rejectionCount.length / jobs.length) * 100) + "%";
     } else {
         rejectionRatePercentage.textContent = "0%";
     }
@@ -237,17 +241,50 @@ function openEditModal(index) {
     jobApplicationModal.showModal();
 }
 
+// saveDarkMode(isDark) -> Saves dark mode to local storage
+function saveDarkMode(isDark) {
+    localStorage.setItem(DARK_MODE_KEY, JSON.stringify(isDark));
+}
+
+// loadDarkMode() -> Loads dark mode from local storage
+function loadDarkMode() {
+    const saved = localStorage.getItem(DARK_MODE_KEY);
+    return saved === "true";
+}
+
+// applyDarkModeState(isDark) -> Renders dark mode state
+function applyDarkModeState(isDark) {
+    document.body.classList.toggle("dark", isDark);
+    if (toggleModeIcon) {
+        toggleModeIcon.textContent = isDark ? "dark_mode" : "light_mode";
+    }
+}
+
+// toggleDarkMode() -> Toggle betwen Dark mode and Light mode
+function toggleDarkMode() {
+    const isDark = !document.body.classList.contains("dark");
+    applyDarkModeState(isDark);
+    saveDarkMode(isDark);
+}
+
 // Add event listeners
-closeModalBtn.addEventListener("click", closeModal);
-submitModalBtn.addEventListener("click", submit);
-addJobApplicationBtn.addEventListener("click", openAddModal);
-filterDropdown.addEventListener("change", filterJobsByStatus);
-searchInput.addEventListener("input",filterJobsByCompanyOrPosition);
+if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
+if (submitModalBtn) submitModalBtn.addEventListener("click", submit);
+if (addJobApplicationBtn) addJobApplicationBtn.addEventListener("click", openAddModal);
+if (filterDropdown) filterDropdown.addEventListener("change", filterJobsByStatus);
+if (searchInput) searchInput.addEventListener("input", filterJobsByCompanyOrPosition);
+if (toggleModeBtn) toggleModeBtn.addEventListener("click", toggleDarkMode);
 
 // Initialize the app
 function initialize() {
-    loadJobs();
-    renderJobs(jobs);
+    const savedDarkMode = loadDarkMode();
+    applyDarkModeState(savedDarkMode);
+
+    if (jobsContainer && jobForm) {
+        loadJobs();
+        renderJobs(jobs);
+    }
+
     console.log("App Initialized");
 }
 
