@@ -1,0 +1,39 @@
+# Dependency cache
+node_modules/
+/coverage/
+
+# Build artifacts
+dist/
+build/
+.cache
+*.o
+*.obj
+# add other build folders if necessary, e.g., for TypeScript
+# out/
+# .next/ (if using Next.js)
+
+# Environment variables and sensitive files
+.env
+.env.development
+.env.test
+.env.production
+.DS_Store # macOS specific
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+*.log
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+.project
+.classpath
+
+# Optional: if you are using specific tools, add their output
+# e.g. Serverless framework
+.serverless/
